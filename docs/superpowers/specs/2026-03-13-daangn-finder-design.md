@@ -64,7 +64,7 @@
       "href": "/kr/buy-sell/소니-rx100-m7-abc123/"
     }
   ],
-  "totalCount": 45,
+  "resultCount": 45,
   "regionCount": 24
 }
 ```
@@ -116,9 +116,29 @@
 - **cheerio** (HTML 파싱)
 - **TypeScript**
 
+## 당근마켓 원본 데이터 필드 매핑
+
+`window.__remixContext.loaderData`의 `fleamarketArticles` 배열 항목:
+
+| 원본 필드 | 앱 필드 | 비고 |
+|-----------|--------|------|
+| `id` (URL 경로) | `id` | 중복 제거 키 |
+| `title` | `title` | |
+| `price` (문자열 "350000.0") | `price` (number) | parseFloat 후 정수 변환 |
+| `thumbnail` (webp URL) | `thumbnail` | |
+| `status` ("Ongoing"/"Closed"/"Reserved") | `status` | |
+| `region.name` | `region` | 동 이름 |
+| `createdAt` (ISO 8601) | `createdAt` | |
+| `href` | `href` | 상세페이지 경로 |
+
 ## 제약사항 및 고려사항
 
+- **siblingRegions 신뢰성**: 대표 동 요청 시 반환되는 siblingRegions가 구 내 전체 동을 포함하지 않을 수 있음. siblingRegions 수가 5개 미만이면 정적 JSON에 사전 수집한 동 목록으로 폴백.
+- **요청 타임아웃**: 개별 동 요청에 5초 타임아웃 적용. 타임아웃된 동은 건너뛰고 성공한 결과만 반환 (부분 결과 허용).
+- **정렬 한계**: 각 동의 첫 페이지 결과만 가져오므로 전체 정렬이 아닌 수집된 결과 내 정렬. UI에 "각 동의 최근 게시글 기준" 안내 표시.
+- **페이지네이션 없음**: 각 동의 첫 페이지 결과만 수집. `resultCount`로 실제 반환 건수 표시 (전체 건수가 아님을 명시).
+- **인바운드 rate limit**: `/api/search`에 IP당 분당 10회 제한 적용 (당근마켓 IP 차단 방지).
 - 당근마켓 rate limiting: 요청 간 적절한 딜레이 (50~100ms) 적용
 - 구당 동 수가 20~30개이므로 한 검색에 최대 30건 요청 — 허용 범위
 - 당근마켓 HTML 구조 변경 시 파서 업데이트 필요
-- 배포: Vercel (Next.js 네이티브 지원)
+- 배포: Vercel (Next.js 네이티브 지원). Hobby 플랜 10초 타임아웃 주의 — 동 수가 많은 구는 청크 분할 또는 Pro 플랜 필요할 수 있음.
