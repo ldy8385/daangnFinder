@@ -1,65 +1,127 @@
-import Image from "next/image";
+"use client";
+
+import { useState, useCallback } from "react";
+import SearchBar from "@/components/SearchBar";
+import SortFilter from "@/components/SortFilter";
+import ArticleGrid from "@/components/ArticleGrid";
+import { Article, RegionEntry, SortType, SearchResult } from "@/lib/types";
 
 export default function Home() {
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false);
+  const [onlyOnSale, setOnlyOnSale] = useState(true);
+  const [sort, setSort] = useState<SortType>("recent");
+  const [resultCount, setResultCount] = useState(0);
+  const [regionCount, setRegionCount] = useState(0);
+  const [error, setError] = useState<string | null>(null);
+  const [lastRegion, setLastRegion] = useState<RegionEntry | null>(null);
+  const [lastQuery, setLastQuery] = useState("");
+
+  const doSearch = useCallback(
+    async (region: RegionEntry, query: string, sale: boolean, sortBy: SortType) => {
+      setIsLoading(true);
+      setError(null);
+      setHasSearched(true);
+
+      try {
+        const params = new URLSearchParams({
+          regionName: region.representativeName,
+          regionId: String(region.representativeId),
+          search: query,
+          onlyOnSale: String(sale),
+          sort: sortBy,
+        });
+
+        const res = await fetch(`/api/search?${params}`);
+        if (!res.ok) {
+          const data = await res.json();
+          throw new Error(data.error || "검색에 실패했습니다");
+        }
+
+        const data: SearchResult = await res.json();
+        setArticles(data.articles);
+        setResultCount(data.resultCount);
+        setRegionCount(data.regionCount);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "검색에 실패했습니다");
+        setArticles([]);
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    []
+  );
+
+  const handleSearch = (region: RegionEntry, query: string) => {
+    setLastRegion(region);
+    setLastQuery(query);
+    doSearch(region, query, onlyOnSale, sort);
+  };
+
+  const handleOnlyOnSaleChange = (value: boolean) => {
+    setOnlyOnSale(value);
+    if (lastRegion && lastQuery) {
+      doSearch(lastRegion, lastQuery, value, sort);
+    }
+  };
+
+  const handleSortChange = (value: SortType) => {
+    setSort(value);
+    if (lastRegion && lastQuery) {
+      doSearch(lastRegion, lastQuery, onlyOnSale, value);
+    }
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="min-h-screen bg-gray-50">
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        <header className="text-center mb-8">
+          <h1 className="text-3xl font-bold text-gray-900">
+            daangnFinder
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-gray-500 mt-2">
+            시/구 단위로 당근마켓 중고거래를 한번에 검색
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        </header>
+
+        <SearchBar onSearch={handleSearch} isLoading={isLoading} />
+
+        {hasSearched && (
+          <SortFilter
+            onlyOnSale={onlyOnSale}
+            sort={sort}
+            resultCount={resultCount}
+            regionCount={regionCount}
+            onOnlyOnSaleChange={handleOnlyOnSaleChange}
+            onSortChange={handleSortChange}
+          />
+        )}
+
+        {error && (
+          <div className="text-center py-8">
+            <p className="text-red-500">{error}</p>
+            <button
+              onClick={() => lastRegion && lastQuery && doSearch(lastRegion, lastQuery, onlyOnSale, sort)}
+              className="mt-3 px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600"
+            >
+              다시 시도
+            </button>
+          </div>
+        )}
+
+        {!error && (
+          <ArticleGrid
+            articles={articles}
+            isLoading={isLoading}
+            hasSearched={hasSearched}
+          />
+        )}
+
+        <footer className="text-center text-xs text-gray-400 mt-12 py-4">
+          <p>각 동의 최근 게시글 기준으로 검색됩니다</p>
+        </footer>
+      </div>
+    </main>
   );
 }
