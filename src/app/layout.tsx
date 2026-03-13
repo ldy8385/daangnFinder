@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://daangnfinder.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://daangn-finder.vercel.app";
 
 export const metadata: Metadata = {
   title: "daangnFinder - 당근마켓 지역 통합 검색",
