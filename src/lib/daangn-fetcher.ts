@@ -1,10 +1,11 @@
 import { parseArticles, parseSiblingRegions } from "./daangn-parser";
-import { Article, SiblingRegion, SortType, RegionEntry } from "./types";
+import { Article, SiblingRegion, SortType } from "./types";
 import { getDistrictsByCity } from "./regions";
 
 const DAANGN_BASE = "https://www.daangn.com/kr/buy-sell/s/";
+const REMIX_DATA_PARAM = "&_data=routes%2Fkr.buy-sell.s";
 const CHUNK_SIZE = 10;
-const REQUEST_TIMEOUT = 5000;
+const REQUEST_TIMEOUT = 10000;
 const CHUNK_DELAY = 100;
 
 function buildDaangnUrl(regionName: string, regionId: number, search: string, onlyOnSale: boolean): string {
@@ -13,10 +14,10 @@ function buildDaangnUrl(regionName: string, regionId: number, search: string, on
     search,
   });
   if (onlyOnSale) params.set("only_on_sale", "true");
-  return `${DAANGN_BASE}?${params.toString()}`;
+  return `${DAANGN_BASE}?${params.toString()}${REMIX_DATA_PARAM}`;
 }
 
-async function fetchWithTimeout(url: string, timeout: number): Promise<string> {
+async function fetchRouteData(url: string, timeout: number): Promise<Record<string, unknown>> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeout);
   try {
@@ -25,9 +26,10 @@ async function fetchWithTimeout(url: string, timeout: number): Promise<string> {
       headers: {
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
         "Accept-Language": "ko-KR,ko;q=0.9",
+        "Accept": "application/json",
       },
     });
-    return await res.text();
+    return await res.json();
   } finally {
     clearTimeout(timer);
   }
@@ -60,8 +62,8 @@ async function fetchChunk(regions: SiblingRegion[], search: string, onlyOnSale: 
   const results = await Promise.allSettled(
     regions.map(async (region) => {
       const url = buildDaangnUrl(region.name, region.id, search, onlyOnSale);
-      const html = await fetchWithTimeout(url, REQUEST_TIMEOUT);
-      return parseArticles(html);
+      const data = await fetchRouteData(url, REQUEST_TIMEOUT);
+      return parseArticles(data);
     })
   );
 
@@ -81,9 +83,9 @@ export async function searchDaangn(
 ): Promise<{ articles: Article[]; regionCount: number }> {
   // Step 1: Fetch representative region to get siblingRegions
   const firstUrl = buildDaangnUrl(regionName, regionId, search, onlyOnSale);
-  const firstHtml = await fetchWithTimeout(firstUrl, REQUEST_TIMEOUT);
-  const siblingRegions = parseSiblingRegions(firstHtml);
-  const firstArticles = parseArticles(firstHtml);
+  const firstData = await fetchRouteData(firstUrl, REQUEST_TIMEOUT);
+  const siblingRegions = parseSiblingRegions(firstData);
+  const firstArticles = parseArticles(firstData);
 
   // siblingRegions가 5개 미만이면 신뢰할 수 없으므로 대표 동 결과만 반환
   if (siblingRegions.length < 5) {
@@ -96,7 +98,7 @@ export async function searchDaangn(
   // Step 2: Filter out the representative region (already fetched)
   const remainingRegions = siblingRegions.filter((r) => r.id !== regionId);
 
-  // Step 3: Fetch remaining regions in chunks of 10
+  // Step 3: Fetch remaining regions in chunks
   let allArticles = [...firstArticles];
 
   for (let i = 0; i < remainingRegions.length; i += CHUNK_SIZE) {
@@ -139,31 +141,25 @@ export async function searchDaangnCity(
   const repResults = await Promise.allSettled(
     repRegions.map(async (region) => {
       const url = buildDaangnUrl(region.name, region.id, search, onlyOnSale);
-      const html = await fetchWithTimeout(url, REQUEST_TIMEOUT);
-      const articles = parseArticles(html);
-      const siblings = parseSiblingRegions(html);
+      const data = await fetchRouteData(url, REQUEST_TIMEOUT);
+      const articles = parseArticles(data);
+      const siblings = parseSiblingRegions(data);
       return { articles, siblings, fetchedId: region.id };
     })
   );
 
   // Collect articles from representative dongs + all sibling region IDs
   let allArticles: Article[] = [];
-  const allSiblingIds = new Set<number>();
   const fetchedIds = new Set<number>();
 
   for (const result of repResults) {
     if (result.status !== "fulfilled") continue;
-    const { articles, siblings, fetchedId } = result.value;
+    const { articles, fetchedId } = result.value;
     allArticles = allArticles.concat(articles);
     fetchedIds.add(fetchedId);
-    for (const s of siblings) {
-      allSiblingIds.add(s.id);
-    }
   }
 
   // Step 2: Determine remaining regions (siblings not yet fetched)
-  // Each representative dong's siblingRegions includes all dongs in that 구
-  // We already fetched the representative dongs, so filter those out
   const remainingRegions: SiblingRegion[] = [];
   const seenIds = new Set<number>(fetchedIds);
 

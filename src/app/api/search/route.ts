@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
 
   const params = request.nextUrl.searchParams;
   const search = params.get("search");
-  const onlyOnSale = params.get("onlyOnSale") !== "false";
+  const onlyOnSale = params.get("onlyOnSale") === "true";
   const sort = (params.get("sort") || "recent") as SortType;
   const level = params.get("level") || "district";
 

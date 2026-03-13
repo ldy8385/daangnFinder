@@ -80,19 +80,45 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 py-8">
-        <header className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">
-            daangnFinder
-          </h1>
-          <p className="text-gray-500 mt-2">
-            시/구 단위로 당근마켓 중고거래를 한번에 검색
-          </p>
-        </header>
+    <div className="min-h-screen">
+      {/* Header */}
+      <header className="bg-white border-b border-warm-200 sticky top-0 z-20">
+        <div className="max-w-5xl mx-auto px-4 py-4">
+          <div className="flex items-center gap-3 mb-4">
+            <svg viewBox="0 0 64 64" className="w-9 h-9 shrink-0">
+              <defs>
+                <linearGradient id="hc" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{ stopColor: "#FF8A3D" }} />
+                  <stop offset="100%" style={{ stopColor: "#FF6F0F" }} />
+                </linearGradient>
+                <linearGradient id="hl" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" style={{ stopColor: "#4CAF50" }} />
+                  <stop offset="100%" style={{ stopColor: "#66BB6A" }} />
+                </linearGradient>
+              </defs>
+              <path d="M32 58c-2 0-3.5-1-4.5-3C24 48 20 38 19 32c-1.5-8 2-14 7-17s11-3 16 0 8.5 9 7 17c-1 6-5 16-8.5 23-1 2-2.5 3-4.5 3h-4z" fill="url(#hc)" />
+              <path d="M32 18c-3-6-9-10-14-12 4-2 10 0 14 6" fill="url(#hl)" />
+              <path d="M32 18c3-6 9-10 14-12-4-2-10 0-14 6" fill="url(#hl)" />
+              <path d="M32 18c0-7 1-13 0-16 1 3 2 9 0 16" fill="url(#hl)" opacity="0.8" />
+              <circle cx="44" cy="44" r="8" fill="white" opacity="0.9" />
+              <circle cx="44" cy="44" r="6" fill="none" stroke="#FF6F0F" strokeWidth="2.5" />
+              <line x1="48.5" y1="48.5" x2="54" y2="54" stroke="#FF6F0F" strokeWidth="2.5" strokeLinecap="round" />
+            </svg>
+            <div>
+              <h1 className="text-xl font-bold text-warm-800 leading-tight">
+                daangnFinder
+              </h1>
+              <p className="text-xs text-warm-400">
+                시/구 단위 당근마켓 통합 검색
+              </p>
+            </div>
+          </div>
+          <SearchBar onSearch={handleSearch} isLoading={isLoading} />
+        </div>
+      </header>
 
-        <SearchBar onSearch={handleSearch} isLoading={isLoading} />
-
+      {/* Content */}
+      <main className="max-w-5xl mx-auto px-4 py-5">
         {hasSearched && (
           <SortFilter
             onlyOnSale={onlyOnSale}
@@ -105,11 +131,11 @@ export default function Home() {
         )}
 
         {error && (
-          <div className="text-center py-8">
-            <p className="text-red-500">{error}</p>
+          <div className="text-center py-12">
+            <p className="text-warm-600">{error}</p>
             <button
               onClick={() => lastRegion && lastQuery && doSearch(lastRegion, lastQuery, onlyOnSale, sort)}
-              className="mt-3 px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600"
+              className="mt-3 px-5 py-2.5 bg-carrot-500 text-white rounded-full font-medium hover:bg-carrot-600 transition-colors"
             >
               다시 시도
             </button>
@@ -123,11 +149,19 @@ export default function Home() {
             hasSearched={hasSearched}
           />
         )}
+      </main>
 
-        <footer className="text-center text-xs text-gray-400 mt-12 py-4">
-          <p>각 동의 최근 게시글 기준으로 검색됩니다</p>
-        </footer>
-      </div>
-    </main>
+      {/* Footer */}
+      <footer className="border-t border-warm-200 bg-warm-100">
+        <div className="max-w-5xl mx-auto px-4 py-6">
+          <ul className="text-xs text-warm-400 space-y-1 leading-relaxed">
+            <li>당근마켓 웹 검색 데이터 기반이며, 모바일 앱과 검색 결과가 다를 수 있습니다.</li>
+            <li>일부 검색어는 앱에서만 결과가 나오고 웹에서는 나오지 않을 수 있습니다.</li>
+            <li>각 동네별 최근 게시글 기준으로 검색되며, 전체 게시글을 포함하지 않을 수 있습니다.</li>
+            <li>당근마켓 서버 상태에 따라 일부 동네의 결과가 누락될 수 있습니다.</li>
+          </ul>
+        </div>
+      </footer>
+    </div>
   );
 }

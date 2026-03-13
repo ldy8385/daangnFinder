@@ -1,22 +1,44 @@
 import { describe, it, expect } from "vitest";
-import { readFileSync } from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
 import { parseArticles, parseSiblingRegions } from "@/lib/daangn-parser";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const html = readFileSync(
-  path.join(__dirname, "../fixtures/daangn-sample.html"),
-  "utf-8"
-);
+const sampleData = {
+  allPage: {
+    fleamarketArticles: [
+      {
+        id: "/kr/buy-sell/test-1/",
+        title: "아이폰 15",
+        price: "800000.0",
+        thumbnail: "https://img.example.com/thumb.webp",
+        status: "Ongoing",
+        createdAt: "2026-03-10T12:00:00Z",
+        href: "https://www.daangn.com/kr/buy-sell/test-1/",
+        region: { name: "역삼동" },
+      },
+      {
+        id: "/kr/buy-sell/test-2/",
+        title: "갤럭시 S25",
+        price: "600000.0",
+        thumbnail: "https://img.example.com/thumb2.webp",
+        status: "Closed",
+        createdAt: "2026-03-09T10:00:00Z",
+        href: "https://www.daangn.com/kr/buy-sell/test-2/",
+        region: { name: "대치동" },
+      },
+    ],
+  },
+  regionFilterOptions: {
+    siblingRegions: [
+      { id: 6035, name: "역삼동", name3Id: 6035, name3: "역삼동" },
+      { id: 6032, name: "대치동", name3Id: 6032, name3: "대치동" },
+      { id: 386, name: "청담동", name3Id: 386, name3: "청담동" },
+    ],
+  },
+};
 
 describe("parseArticles", () => {
-  it("extracts articles from HTML", () => {
-    const articles = parseArticles(html);
-    expect(Array.isArray(articles)).toBe(true);
-    expect(articles.length).toBeGreaterThan(0);
+  it("extracts articles from route data", () => {
+    const articles = parseArticles(sampleData);
+    expect(articles).toHaveLength(2);
     const a = articles[0];
     expect(a).toHaveProperty("id");
     expect(a).toHaveProperty("title");
@@ -27,17 +49,27 @@ describe("parseArticles", () => {
     expect(a).toHaveProperty("createdAt");
     expect(a).toHaveProperty("href");
     expect(typeof a.price).toBe("number");
+    expect(a.price).toBe(800000);
+    expect(a.region).toBe("역삼동");
+  });
+
+  it("returns empty array for missing data", () => {
+    expect(parseArticles({})).toEqual([]);
+    expect(parseArticles({ allPage: {} })).toEqual([]);
+    expect(parseArticles({ allPage: { fleamarketArticles: null } })).toEqual([]);
   });
 });
 
 describe("parseSiblingRegions", () => {
-  it("extracts sibling regions from HTML", () => {
-    const regions = parseSiblingRegions(html);
-    expect(Array.isArray(regions)).toBe(true);
-    // siblingRegions MUST be extracted — validates parser key paths
-    expect(regions.length).toBeGreaterThan(0);
-    expect(regions[0]).toHaveProperty("id");
-    expect(regions[0]).toHaveProperty("name");
-    expect(typeof regions[0].id).toBe("number");
+  it("extracts sibling regions from route data", () => {
+    const regions = parseSiblingRegions(sampleData);
+    expect(regions).toHaveLength(3);
+    expect(regions[0]).toEqual({ id: 6035, name: "역삼동" });
+    expect(regions[1]).toEqual({ id: 6032, name: "대치동" });
+  });
+
+  it("returns empty array for missing data", () => {
+    expect(parseSiblingRegions({})).toEqual([]);
+    expect(parseSiblingRegions({ regionFilterOptions: {} })).toEqual([]);
   });
 });

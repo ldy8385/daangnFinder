@@ -1,0 +1,3 @@
+[     931ms] [WARNING] [Meta Pixel] - Duplicate Pixel ID: 1066968971097862. @ https://www.daangn.com/_remix/performance-15hzpTXM.js:5
+[    1218ms] [ERROR] Attestation check for Attribution Reporting on https://www.google-analytics.com failed. @ https://www.daangn.com/kr/buy-sell/s/?in=%EC%97%AD%EC%82%BC%EB%8F%99-6035&search=rx100:0
+[    1218ms] [ERROR] Attestation check for Attribution Reporting on https://www.google-analytics.com failed. @ https://www.daangn.com/kr/buy-sell/s/?in=%EC%97%AD%EC%82%BC%EB%8F%99-6035&search=rx100:0

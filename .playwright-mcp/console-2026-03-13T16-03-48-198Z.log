@@ -1,0 +1,6 @@
+[    1048ms] [WARNING] [Meta Pixel] - Duplicate Pixel ID: 1066968971097862. @ https://www.daangn.com/_remix/performance-15hzpTXM.js:5
+[    1306ms] [ERROR] Attestation check for Attribution Reporting on https://www.google-analytics.com failed. @ https://www.daangn.com/kr/buy-sell/?in=%EC%97%AD%EC%82%BC%EB%8F%99-6035:0
+[    1306ms] [ERROR] Attestation check for Attribution Reporting on https://www.google-analytics.com failed. @ https://www.daangn.com/kr/buy-sell/?in=%EC%97%AD%EC%82%BC%EB%8F%99-6035:0
+[    1306ms] [ERROR] Attestation check for Attribution Reporting on https://www.google-analytics.com failed. @ https://www.daangn.com/kr/buy-sell/?in=%EC%97%AD%EC%82%BC%EB%8F%99-6035:0
+[   73053ms] [ERROR] Attestation check for Attribution Reporting on https://www.google-analytics.com failed. @ https://www.daangn.com/kr/realty/s/?in=%EC%97%AD%EC%82%BC%EB%8F%99-6035:0
+[   73972ms] [ERROR] Attestation check for Attribution Reporting on https://www.google-analytics.com failed. @ https://www.daangn.com/kr/realty/s/?in=%EC%97%AD%EC%82%BC%EB%8F%99-6035:0

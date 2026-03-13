@@ -1,56 +1,2162 @@
 [
-  { "name": "서울특별시", "depth1": "서울특별시", "depth2": "", "representativeId": 0, "representativeName": "", "level": "city" },
-  { "name": "부산광역시", "depth1": "부산광역시", "depth2": "", "representativeId": 0, "representativeName": "", "level": "city" },
-  { "name": "인천광역시", "depth1": "인천광역시", "depth2": "", "representativeId": 0, "representativeName": "", "level": "city" },
-  { "name": "대구광역시", "depth1": "대구광역시", "depth2": "", "representativeId": 0, "representativeName": "", "level": "city" },
-  { "name": "대전광역시", "depth1": "대전광역시", "depth2": "", "representativeId": 0, "representativeName": "", "level": "city" },
-  { "name": "광주광역시", "depth1": "광주광역시", "depth2": "", "representativeId": 0, "representativeName": "", "level": "city" },
-  { "name": "서울특별시 강남구", "depth1": "서울특별시", "depth2": "강남구", "representativeId": 6035, "representativeName": "역삼동", "level": "district" },
-  { "name": "서울특별시 서초구", "depth1": "서울특별시", "depth2": "서초구", "representativeId": 6128, "representativeName": "서초동", "level": "district" },
-  { "name": "서울특별시 송파구", "depth1": "서울특별시", "depth2": "송파구", "representativeId": 6188, "representativeName": "잠실동", "level": "district" },
-  { "name": "서울특별시 강동구", "depth1": "서울특별시", "depth2": "강동구", "representativeId": 6044, "representativeName": "천호동", "level": "district" },
-  { "name": "서울특별시 강서구", "depth1": "서울특별시", "depth2": "강서구", "representativeId": 6057, "representativeName": "화곡동", "level": "district" },
-  { "name": "서울특별시 양천구", "depth1": "서울특별시", "depth2": "양천구", "representativeId": 6190, "representativeName": "목동", "level": "district" },
-  { "name": "서울특별시 영등포구", "depth1": "서울특별시", "depth2": "영등포구", "representativeId": 6216, "representativeName": "여의도동", "level": "district" },
-  { "name": "서울특별시 구로구", "depth1": "서울특별시", "depth2": "구로구", "representativeId": 6064, "representativeName": "구로동", "level": "district" },
-  { "name": "서울특별시 금천구", "depth1": "서울특별시", "depth2": "금천구", "representativeId": 6071, "representativeName": "시흥동", "level": "district" },
-  { "name": "서울특별시 관악구", "depth1": "서울특별시", "depth2": "관악구", "representativeId": 355, "representativeName": "신림동", "level": "district" },
-  { "name": "서울특별시 동작구", "depth1": "서울특별시", "depth2": "동작구", "representativeId": 6091, "representativeName": "사당동", "level": "district" },
-  { "name": "서울특별시 마포구", "depth1": "서울특별시", "depth2": "마포구", "representativeId": 231, "representativeName": "합정동", "level": "district" },
-  { "name": "서울특별시 서대문구", "depth1": "서울특별시", "depth2": "서대문구", "representativeId": 210, "representativeName": "신촌동", "level": "district" },
-  { "name": "서울특별시 은평구", "depth1": "서울특별시", "depth2": "은평구", "representativeId": 6255, "representativeName": "불광동", "level": "district" },
-  { "name": "서울특별시 종로구", "depth1": "서울특별시", "depth2": "종로구", "representativeId": 6320, "representativeName": "청운동", "level": "district" },
-  { "name": "서울특별시 중구", "depth1": "서울특별시", "depth2": "중구", "representativeId": 23, "representativeName": "명동", "level": "district" },
-  { "name": "서울특별시 용산구", "depth1": "서울특별시", "depth2": "용산구", "representativeId": 6245, "representativeName": "이태원동", "level": "district" },
-  { "name": "서울특별시 성동구", "depth1": "서울특별시", "depth2": "성동구", "representativeId": 6143, "representativeName": "행당동", "level": "district" },
-  { "name": "서울특별시 광진구", "depth1": "서울특별시", "depth2": "광진구", "representativeId": 72, "representativeName": "화양동", "level": "district" },
-  { "name": "서울특별시 동대문구", "depth1": "서울특별시", "depth2": "동대문구", "representativeId": 97, "representativeName": "회기동", "level": "district" },
-  { "name": "서울특별시 중랑구", "depth1": "서울특별시", "depth2": "중랑구", "representativeId": 6407, "representativeName": "면목동", "level": "district" },
-  { "name": "서울특별시 성북구", "depth1": "서울특별시", "depth2": "성북구", "representativeId": 6145, "representativeName": "길음동", "level": "district" },
-  { "name": "서울특별시 강북구", "depth1": "서울특별시", "depth2": "강북구", "representativeId": 6046, "representativeName": "수유동", "level": "district" },
-  { "name": "서울특별시 도봉구", "depth1": "서울특별시", "depth2": "도봉구", "representativeId": 6079, "representativeName": "쌍문동", "level": "district" },
-  { "name": "서울특별시 노원구", "depth1": "서울특별시", "depth2": "노원구", "representativeId": 6073, "representativeName": "상계동", "level": "district" },
-  { "name": "부산광역시 해운대구", "depth1": "부산광역시", "depth2": "해운대구", "representativeId": 3102, "representativeName": "우동", "level": "district" },
-  { "name": "부산광역시 부산진구", "depth1": "부산광역시", "depth2": "부산진구", "representativeId": 2891, "representativeName": "부전동", "level": "district" },
-  { "name": "부산광역시 남구", "depth1": "부산광역시", "depth2": "남구", "representativeId": 2820, "representativeName": "대연동", "level": "district" },
-  { "name": "부산광역시 북구", "depth1": "부산광역시", "depth2": "북구", "representativeId": 2910, "representativeName": "화명동", "level": "district" },
-  { "name": "부산광역시 동래구", "depth1": "부산광역시", "depth2": "동래구", "representativeId": 2840, "representativeName": "온천동", "level": "district" },
-  { "name": "부산광역시 중구", "depth1": "부산광역시", "depth2": "중구", "representativeId": 2960, "representativeName": "광복동", "level": "district" },
-  { "name": "인천광역시 남동구", "depth1": "인천광역시", "depth2": "남동구", "representativeId": 3380, "representativeName": "구월동", "level": "district" },
-  { "name": "인천광역시 부평구", "depth1": "인천광역시", "depth2": "부평구", "representativeId": 3430, "representativeName": "부평동", "level": "district" },
-  { "name": "인천광역시 연수구", "depth1": "인천광역시", "depth2": "연수구", "representativeId": 3460, "representativeName": "송도동", "level": "district" },
-  { "name": "인천광역시 서구", "depth1": "인천광역시", "depth2": "서구", "representativeId": 3445, "representativeName": "청라동", "level": "district" },
-  { "name": "인천광역시 계양구", "depth1": "인천광역시", "depth2": "계양구", "representativeId": 3360, "representativeName": "계산동", "level": "district" },
-  { "name": "대구광역시 수성구", "depth1": "대구광역시", "depth2": "수성구", "representativeId": 4150, "representativeName": "범어동", "level": "district" },
-  { "name": "대구광역시 달서구", "depth1": "대구광역시", "depth2": "달서구", "representativeId": 4060, "representativeName": "성당동", "level": "district" },
-  { "name": "대구광역시 북구", "depth1": "대구광역시", "depth2": "북구", "representativeId": 4130, "representativeName": "칠성동", "level": "district" },
-  { "name": "대구광역시 중구", "depth1": "대구광역시", "depth2": "중구", "representativeId": 4170, "representativeName": "동성로", "level": "district" },
-  { "name": "대전광역시 유성구", "depth1": "대전광역시", "depth2": "유성구", "representativeId": 4820, "representativeName": "궁동", "level": "district" },
-  { "name": "대전광역시 서구", "depth1": "대전광역시", "depth2": "서구", "representativeId": 4800, "representativeName": "둔산동", "level": "district" },
-  { "name": "대전광역시 중구", "depth1": "대전광역시", "depth2": "중구", "representativeId": 4830, "representativeName": "은행동", "level": "district" },
-  { "name": "대전광역시 동구", "depth1": "대전광역시", "depth2": "동구", "representativeId": 4770, "representativeName": "판암동", "level": "district" },
-  { "name": "광주광역시 서구", "depth1": "광주광역시", "depth2": "서구", "representativeId": 5290, "representativeName": "치평동", "level": "district" },
-  { "name": "광주광역시 북구", "depth1": "광주광역시", "depth2": "북구", "representativeId": 5280, "representativeName": "용봉동", "level": "district" },
-  { "name": "광주광역시 남구", "depth1": "광주광역시", "depth2": "남구", "representativeId": 5250, "representativeName": "봉선동", "level": "district" },
-  { "name": "광주광역시 동구", "depth1": "광주광역시", "depth2": "동구", "representativeId": 5240, "representativeName": "충장로", "level": "district" }
+  {
+    "name": "강원특별자치도",
+    "depth1": "강원특별자치도",
+    "depth2": "",
+    "representativeId": 0,
+    "representativeName": "",
+    "level": "city"
+  },
+  {
+    "name": "강원특별자치도 강릉시",
+    "depth1": "강원특별자치도",
+    "depth2": "강릉시",
+    "representativeId": 4253,
+    "representativeName": "교동",
+    "level": "district"
+  },
+  {
+    "name": "강원특별자치도 고성군",
+    "depth1": "강원특별자치도",
+    "depth2": "고성군",
+    "representativeId": 2083,
+    "representativeName": "토성면",
+    "level": "district"
+  },
+  {
+    "name": "강원특별자치도 동해시",
+    "depth1": "강원특별자치도",
+    "depth2": "동해시",
+    "representativeId": 1950,
+    "representativeName": "천곡동",
+    "level": "district"
+  },
+  {
+    "name": "강원특별자치도 삼척시",
+    "depth1": "강원특별자치도",
+    "depth2": "삼척시",
+    "representativeId": 1989,
+    "representativeName": "교동",
+    "level": "district"
+  },
+  {
+    "name": "강원특별자치도 속초시",
+    "depth1": "강원특별자치도",
+    "depth2": "속초시",
+    "representativeId": 1975,
+    "representativeName": "조양동",
+    "level": "district"
+  },
+  {
+    "name": "강원특별자치도 양구군",
+    "depth1": "강원특별자치도",
+    "depth2": "양구군",
+    "representativeId": 2065,
+    "representativeName": "양구읍",
+    "level": "district"
+  },
+  {
+    "name": "강원특별자치도 양양군",
+    "depth1": "강원특별자치도",
+    "depth2": "양양군",
+    "representativeId": 2086,
+    "representativeName": "양양읍",
+    "level": "district"
+  },
+  {
+    "name": "강원특별자치도 영월군",
+    "depth1": "강원특별자치도",
+    "depth2": "영월군",
+    "representativeId": 2014,
+    "representativeName": "영월읍",
+    "level": "district"
+  },
+  {
+    "name": "강원특별자치도 원주시",
+    "depth1": "강원특별자치도",
+    "depth2": "원주시",
+    "representativeId": 1916,
+    "representativeName": "단구동",
+    "level": "district"
+  },
+  {
+    "name": "강원특별자치도 인제군",
+    "depth1": "강원특별자치도",
+    "depth2": "인제군",
+    "representativeId": 2071,
+    "representativeName": "인제읍",
+    "level": "district"
+  },
+  {
+    "name": "강원특별자치도 정선군",
+    "depth1": "강원특별자치도",
+    "depth2": "정선군",
+    "representativeId": 2035,
+    "representativeName": "정선읍",
+    "level": "district"
+  },
+  {
+    "name": "강원특별자치도 철원군",
+    "depth1": "강원특별자치도",
+    "depth2": "철원군",
+    "representativeId": 2049,
+    "representativeName": "동송읍",
+    "level": "district"
+  },
+  {
+    "name": "강원특별자치도 춘천시",
+    "depth1": "강원특별자치도",
+    "depth2": "춘천시",
+    "representativeId": 1898,
+    "representativeName": "퇴계동",
+    "level": "district"
+  },
+  {
+    "name": "강원특별자치도 태백시",
+    "depth1": "강원특별자치도",
+    "depth2": "태백시",
+    "representativeId": 1961,
+    "representativeName": "황지동",
+    "level": "district"
+  },
+  {
+    "name": "강원특별자치도 평창군",
+    "depth1": "강원특별자치도",
+    "depth2": "평창군",
+    "representativeId": 2030,
+    "representativeName": "봉평면",
+    "level": "district"
+  },
+  {
+    "name": "강원특별자치도 홍천군",
+    "depth1": "강원특별자치도",
+    "depth2": "홍천군",
+    "representativeId": 1993,
+    "representativeName": "홍천읍",
+    "level": "district"
+  },
+  {
+    "name": "강원특별자치도 화천군",
+    "depth1": "강원특별자치도",
+    "depth2": "화천군",
+    "representativeId": 2059,
+    "representativeName": "화천읍",
+    "level": "district"
+  },
+  {
+    "name": "강원특별자치도 횡성군",
+    "depth1": "강원특별자치도",
+    "depth2": "횡성군",
+    "representativeId": 2004,
+    "representativeName": "횡성읍",
+    "level": "district"
+  },
+  {
+    "name": "경기도",
+    "depth1": "경기도",
+    "depth2": "",
+    "representativeId": 0,
+    "representativeName": "",
+    "level": "city"
+  },
+  {
+    "name": "경기도 가평군",
+    "depth1": "경기도",
+    "depth2": "가평군",
+    "representativeId": 1854,
+    "representativeName": "가평읍",
+    "level": "district"
+  },
+  {
+    "name": "경기도 고양시 덕양구",
+    "depth1": "경기도",
+    "depth2": "고양시 덕양구",
+    "representativeId": 4410,
+    "representativeName": "행신동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 고양시 일산동구",
+    "depth1": "경기도",
+    "depth2": "고양시 일산동구",
+    "representativeId": 1550,
+    "representativeName": "식사동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 고양시 일산서구",
+    "depth1": "경기도",
+    "depth2": "고양시 일산서구",
+    "representativeId": 1568,
+    "representativeName": "대화동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 과천시",
+    "depth1": "경기도",
+    "depth2": "과천시",
+    "representativeId": 1573,
+    "representativeName": "갈현동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 광명시",
+    "depth1": "경기도",
+    "depth2": "광명시",
+    "representativeId": 4440,
+    "representativeName": "일직동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 광주시",
+    "depth1": "경기도",
+    "depth2": "광주시",
+    "representativeId": 1793,
+    "representativeName": "초월읍",
+    "level": "district"
+  },
+  {
+    "name": "경기도 구리시",
+    "depth1": "경기도",
+    "depth2": "구리시",
+    "representativeId": 1581,
+    "representativeName": "인창동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 군포시",
+    "depth1": "경기도",
+    "depth2": "군포시",
+    "representativeId": 4464,
+    "representativeName": "산본동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 김포시",
+    "depth1": "경기도",
+    "depth2": "김포시",
+    "representativeId": 1762,
+    "representativeName": "장기동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 남양주시",
+    "depth1": "경기도",
+    "depth2": "남양주시",
+    "representativeId": 4470,
+    "representativeName": "다산동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 동두천시",
+    "depth1": "경기도",
+    "depth2": "동두천시",
+    "representativeId": 4483,
+    "representativeName": "지행동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 부천시",
+    "depth1": "경기도",
+    "depth2": "부천시",
+    "representativeId": 1420,
+    "representativeName": "중동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 부천시 소사구",
+    "depth1": "경기도",
+    "depth2": "부천시 소사구",
+    "representativeId": 4495,
+    "representativeName": "옥길동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 부천시 오정구",
+    "depth1": "경기도",
+    "depth2": "부천시 오정구",
+    "representativeId": 4497,
+    "representativeName": "원종동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 부천시 원미구",
+    "depth1": "경기도",
+    "depth2": "부천시 원미구",
+    "representativeId": 1420,
+    "representativeName": "중동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 성남시 분당구",
+    "depth1": "경기도",
+    "depth2": "성남시 분당구",
+    "representativeId": 1339,
+    "representativeName": "정자동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 성남시 수정구",
+    "depth1": "경기도",
+    "depth2": "성남시 수정구",
+    "representativeId": 3971,
+    "representativeName": "위례동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 성남시 중원구",
+    "depth1": "경기도",
+    "depth2": "성남시 중원구",
+    "representativeId": 1323,
+    "representativeName": "성남동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 수원시 권선구",
+    "depth1": "경기도",
+    "depth2": "수원시 권선구",
+    "representativeId": 4526,
+    "representativeName": "권선동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 수원시 영통구",
+    "depth1": "경기도",
+    "depth2": "수원시 영통구",
+    "representativeId": 4534,
+    "representativeName": "망포동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 수원시 장안구",
+    "depth1": "경기도",
+    "depth2": "수원시 장안구",
+    "representativeId": 4543,
+    "representativeName": "정자동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 수원시 팔달구",
+    "depth1": "경기도",
+    "depth2": "수원시 팔달구",
+    "representativeId": 1291,
+    "representativeName": "인계동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 시흥시",
+    "depth1": "경기도",
+    "depth2": "시흥시",
+    "representativeId": 4245,
+    "representativeName": "배곧동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 안산시 단원구",
+    "depth1": "경기도",
+    "depth2": "안산시 단원구",
+    "representativeId": 1517,
+    "representativeName": "고잔동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 안산시 상록구",
+    "depth1": "경기도",
+    "depth2": "안산시 상록구",
+    "representativeId": 1504,
+    "representativeName": "사동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 안성시",
+    "depth1": "경기도",
+    "depth2": "안성시",
+    "representativeId": 1736,
+    "representativeName": "공도읍",
+    "level": "district"
+  },
+  {
+    "name": "경기도 안양시 동안구",
+    "depth1": "경기도",
+    "depth2": "안양시 동안구",
+    "representativeId": 4640,
+    "representativeName": "호계동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 안양시 만안구",
+    "depth1": "경기도",
+    "depth2": "안양시 만안구",
+    "representativeId": 4643,
+    "representativeName": "안양동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 양주시",
+    "depth1": "경기도",
+    "depth2": "양주시",
+    "representativeId": 4656,
+    "representativeName": "옥정동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 양평군",
+    "depth1": "경기도",
+    "depth2": "양평군",
+    "representativeId": 1861,
+    "representativeName": "양평읍",
+    "level": "district"
+  },
+  {
+    "name": "경기도 여주시",
+    "depth1": "경기도",
+    "depth2": "여주시",
+    "representativeId": 1830,
+    "representativeName": "가남읍",
+    "level": "district"
+  },
+  {
+    "name": "경기도 연천군",
+    "depth1": "경기도",
+    "depth2": "연천군",
+    "representativeId": 1844,
+    "representativeName": "전곡읍",
+    "level": "district"
+  },
+  {
+    "name": "경기도 오산시",
+    "depth1": "경기도",
+    "depth2": "오산시",
+    "representativeId": 4701,
+    "representativeName": "원동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 용인시 기흥구",
+    "depth1": "경기도",
+    "depth2": "용인시 기흥구",
+    "representativeId": 1679,
+    "representativeName": "구갈동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 용인시 수지구",
+    "depth1": "경기도",
+    "depth2": "용인시 수지구",
+    "representativeId": 1697,
+    "representativeName": "성복동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 용인시 처인구",
+    "depth1": "경기도",
+    "depth2": "용인시 처인구",
+    "representativeId": 4726,
+    "representativeName": "역북동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 의왕시",
+    "depth1": "경기도",
+    "depth2": "의왕시",
+    "representativeId": 1646,
+    "representativeName": "오전동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 의정부시",
+    "depth1": "경기도",
+    "depth2": "의정부시",
+    "representativeId": 4745,
+    "representativeName": "의정부동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 이천시",
+    "depth1": "경기도",
+    "depth2": "이천시",
+    "representativeId": 1722,
+    "representativeName": "부발읍",
+    "level": "district"
+  },
+  {
+    "name": "경기도 파주시",
+    "depth1": "경기도",
+    "depth2": "파주시",
+    "representativeId": 4774,
+    "representativeName": "야당동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 평택시",
+    "depth1": "경기도",
+    "depth2": "평택시",
+    "representativeId": 11139,
+    "representativeName": "고덕동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 포천시",
+    "depth1": "경기도",
+    "depth2": "포천시",
+    "representativeId": 1815,
+    "representativeName": "소흘읍",
+    "level": "district"
+  },
+  {
+    "name": "경기도 하남시",
+    "depth1": "경기도",
+    "depth2": "하남시",
+    "representativeId": 4814,
+    "representativeName": "망월동",
+    "level": "district"
+  },
+  {
+    "name": "경기도 화성시",
+    "depth1": "경기도",
+    "depth2": "화성시",
+    "representativeId": 1766,
+    "representativeName": "봉담읍",
+    "level": "district"
+  },
+  {
+    "name": "경상남도",
+    "depth1": "경상남도",
+    "depth2": "",
+    "representativeId": 0,
+    "representativeName": "",
+    "level": "city"
+  },
+  {
+    "name": "경상남도 거제시",
+    "depth1": "경상남도",
+    "depth2": "거제시",
+    "representativeId": 3658,
+    "representativeName": "고현동",
+    "level": "district"
+  },
+  {
+    "name": "경상남도 거창군",
+    "depth1": "경상남도",
+    "depth2": "거창군",
+    "representativeId": 3781,
+    "representativeName": "거창읍",
+    "level": "district"
+  },
+  {
+    "name": "경상남도 고성군",
+    "depth1": "경상남도",
+    "depth2": "고성군",
+    "representativeId": 3717,
+    "representativeName": "고성읍",
+    "level": "district"
+  },
+  {
+    "name": "경상남도 김해시",
+    "depth1": "경상남도",
+    "depth2": "김해시",
+    "representativeId": 3600,
+    "representativeName": "진영읍",
+    "level": "district"
+  },
+  {
+    "name": "경상남도 남해군",
+    "depth1": "경상남도",
+    "depth2": "남해군",
+    "representativeId": 3732,
+    "representativeName": "남해읍",
+    "level": "district"
+  },
+  {
+    "name": "경상남도 밀양시",
+    "depth1": "경상남도",
+    "depth2": "밀양시",
+    "representativeId": 3635,
+    "representativeName": "삼문동",
+    "level": "district"
+  },
+  {
+    "name": "경상남도 사천시",
+    "depth1": "경상남도",
+    "depth2": "사천시",
+    "representativeId": 3583,
+    "representativeName": "사천읍",
+    "level": "district"
+  },
+  {
+    "name": "경상남도 산청군",
+    "depth1": "경상남도",
+    "depth2": "산청군",
+    "representativeId": 3757,
+    "representativeName": "산청읍",
+    "level": "district"
+  },
+  {
+    "name": "경상남도 양산시",
+    "depth1": "경상남도",
+    "depth2": "양산시",
+    "representativeId": 3662,
+    "representativeName": "물금읍",
+    "level": "district"
+  },
+  {
+    "name": "경상남도 의령군",
+    "depth1": "경상남도",
+    "depth2": "의령군",
+    "representativeId": 3677,
+    "representativeName": "의령읍",
+    "level": "district"
+  },
+  {
+    "name": "경상남도 진주시",
+    "depth1": "경상남도",
+    "depth2": "진주시",
+    "representativeId": 3565,
+    "representativeName": "충무공동",
+    "level": "district"
+  },
+  {
+    "name": "경상남도 창녕군",
+    "depth1": "경상남도",
+    "depth2": "창녕군",
+    "representativeId": 3702,
+    "representativeName": "창녕읍",
+    "level": "district"
+  },
+  {
+    "name": "경상남도 창원시 마산합포구",
+    "depth1": "경상남도",
+    "depth2": "창원시 마산합포구",
+    "representativeId": 3490,
+    "representativeName": "월영동",
+    "level": "district"
+  },
+  {
+    "name": "경상남도 창원시 마산회원구",
+    "depth1": "경상남도",
+    "depth2": "창원시 마산회원구",
+    "representativeId": 3504,
+    "representativeName": "내서읍",
+    "level": "district"
+  },
+  {
+    "name": "경상남도 창원시 성산구",
+    "depth1": "경상남도",
+    "depth2": "창원시 성산구",
+    "representativeId": 3478,
+    "representativeName": "상남동",
+    "level": "district"
+  },
+  {
+    "name": "경상남도 창원시 의창구",
+    "depth1": "경상남도",
+    "depth2": "창원시 의창구",
+    "representativeId": 3468,
+    "representativeName": "북면",
+    "level": "district"
+  },
+  {
+    "name": "경상남도 창원시 진해구",
+    "depth1": "경상남도",
+    "depth2": "창원시 진해구",
+    "representativeId": 5099,
+    "representativeName": "용원동",
+    "level": "district"
+  },
+  {
+    "name": "경상남도 통영시",
+    "depth1": "경상남도",
+    "depth2": "통영시",
+    "representativeId": 3570,
+    "representativeName": "광도면",
+    "level": "district"
+  },
+  {
+    "name": "경상남도 하동군",
+    "depth1": "경상남도",
+    "depth2": "하동군",
+    "representativeId": 3743,
+    "representativeName": "하동읍",
+    "level": "district"
+  },
+  {
+    "name": "경상남도 함안군",
+    "depth1": "경상남도",
+    "depth2": "함안군",
+    "representativeId": 3692,
+    "representativeName": "칠원읍",
+    "level": "district"
+  },
+  {
+    "name": "경상남도 함양군",
+    "depth1": "경상남도",
+    "depth2": "함양군",
+    "representativeId": 3769,
+    "representativeName": "함양읍",
+    "level": "district"
+  },
+  {
+    "name": "경상남도 합천군",
+    "depth1": "경상남도",
+    "depth2": "합천군",
+    "representativeId": 3794,
+    "representativeName": "합천읍",
+    "level": "district"
+  },
+  {
+    "name": "경상북도",
+    "depth1": "경상북도",
+    "depth2": "",
+    "representativeId": 0,
+    "representativeName": "",
+    "level": "city"
+  },
+  {
+    "name": "경상북도 경산시",
+    "depth1": "경상북도",
+    "depth2": "경산시",
+    "representativeId": 3311,
+    "representativeName": "하양읍",
+    "level": "district"
+  },
+  {
+    "name": "경상북도 경주시",
+    "depth1": "경상북도",
+    "depth2": "경주시",
+    "representativeId": 3147,
+    "representativeName": "황성동",
+    "level": "district"
+  },
+  {
+    "name": "경상북도 고령군",
+    "depth1": "경상북도",
+    "depth2": "고령군",
+    "representativeId": 3399,
+    "representativeName": "다산면",
+    "level": "district"
+  },
+  {
+    "name": "경상북도 구미시",
+    "depth1": "경상북도",
+    "depth2": "구미시",
+    "representativeId": 5209,
+    "representativeName": "옥계동",
+    "level": "district"
+  },
+  {
+    "name": "경상북도 김천시",
+    "depth1": "경상북도",
+    "depth2": "김천시",
+    "representativeId": 3173,
+    "representativeName": "율곡동",
+    "level": "district"
+  },
+  {
+    "name": "경상북도 문경시",
+    "depth1": "경상북도",
+    "depth2": "문경시",
+    "representativeId": 5236,
+    "representativeName": "모전동",
+    "level": "district"
+  },
+  {
+    "name": "경상북도 봉화군",
+    "depth1": "경상북도",
+    "depth2": "봉화군",
+    "representativeId": 3437,
+    "representativeName": "봉화읍",
+    "level": "district"
+  },
+  {
+    "name": "경상북도 상주시",
+    "depth1": "경상북도",
+    "depth2": "상주시",
+    "representativeId": 5258,
+    "representativeName": "무양동",
+    "level": "district"
+  },
+  {
+    "name": "경상북도 성주군",
+    "depth1": "경상북도",
+    "depth2": "성주군",
+    "representativeId": 3404,
+    "representativeName": "성주읍",
+    "level": "district"
+  },
+  {
+    "name": "경상북도 안동시",
+    "depth1": "경상북도",
+    "depth2": "안동시",
+    "representativeId": 3196,
+    "representativeName": "옥동",
+    "level": "district"
+  },
+  {
+    "name": "경상북도 영덕군",
+    "depth1": "경상북도",
+    "depth2": "영덕군",
+    "representativeId": 3371,
+    "representativeName": "영덕읍",
+    "level": "district"
+  },
+  {
+    "name": "경상북도 영양군",
+    "depth1": "경상북도",
+    "depth2": "영양군",
+    "representativeId": 3364,
+    "representativeName": "영양읍",
+    "level": "district"
+  },
+  {
+    "name": "경상북도 영주시",
+    "depth1": "경상북도",
+    "depth2": "영주시",
+    "representativeId": 5318,
+    "representativeName": "가흥동",
+    "level": "district"
+  },
+  {
+    "name": "경상북도 영천시",
+    "depth1": "경상북도",
+    "depth2": "영천시",
+    "representativeId": 5338,
+    "representativeName": "망정동",
+    "level": "district"
+  },
+  {
+    "name": "경상북도 예천군",
+    "depth1": "경상북도",
+    "depth2": "예천군",
+    "representativeId": 3430,
+    "representativeName": "호명읍",
+    "level": "district"
+  },
+  {
+    "name": "경상북도 울릉군",
+    "depth1": "경상북도",
+    "depth2": "울릉군",
+    "representativeId": 3460,
+    "representativeName": "울릉읍",
+    "level": "district"
+  },
+  {
+    "name": "경상북도 울진군",
+    "depth1": "경상북도",
+    "depth2": "울진군",
+    "representativeId": 3448,
+    "representativeName": "울진읍",
+    "level": "district"
+  },
+  {
+    "name": "경상북도 의성군",
+    "depth1": "경상북도",
+    "depth2": "의성군",
+    "representativeId": 3336,
+    "representativeName": "의성읍",
+    "level": "district"
+  },
+  {
+    "name": "경상북도 청도군",
+    "depth1": "경상북도",
+    "depth2": "청도군",
+    "representativeId": 3385,
+    "representativeName": "청도읍",
+    "level": "district"
+  },
+  {
+    "name": "경상북도 청송군",
+    "depth1": "경상북도",
+    "depth2": "청송군",
+    "representativeId": 3362,
+    "representativeName": "진보면",
+    "level": "district"
+  },
+  {
+    "name": "경상북도 칠곡군",
+    "depth1": "경상북도",
+    "depth2": "칠곡군",
+    "representativeId": 3417,
+    "representativeName": "석적읍",
+    "level": "district"
+  },
+  {
+    "name": "경상북도 포항시 남구",
+    "depth1": "경상북도",
+    "depth2": "포항시 남구",
+    "representativeId": 3098,
+    "representativeName": "오천읍",
+    "level": "district"
+  },
+  {
+    "name": "경상북도 포항시 북구",
+    "depth1": "경상북도",
+    "depth2": "포항시 북구",
+    "representativeId": 3111,
+    "representativeName": "흥해읍",
+    "level": "district"
+  },
+  {
+    "name": "광주광역시",
+    "depth1": "광주광역시",
+    "depth2": "",
+    "representativeId": 0,
+    "representativeName": "",
+    "level": "city"
+  },
+  {
+    "name": "광주광역시 광산구",
+    "depth1": "광주광역시",
+    "depth2": "광산구",
+    "representativeId": 1093,
+    "representativeName": "신창동",
+    "level": "district"
+  },
+  {
+    "name": "광주광역시 남구",
+    "depth1": "광주광역시",
+    "depth2": "남구",
+    "representativeId": 5485,
+    "representativeName": "진월동",
+    "level": "district"
+  },
+  {
+    "name": "광주광역시 동구",
+    "depth1": "광주광역시",
+    "depth2": "동구",
+    "representativeId": 5489,
+    "representativeName": "계림동",
+    "level": "district"
+  },
+  {
+    "name": "광주광역시 북구",
+    "depth1": "광주광역시",
+    "depth2": "북구",
+    "representativeId": 1051,
+    "representativeName": "용봉동",
+    "level": "district"
+  },
+  {
+    "name": "광주광역시 서구",
+    "depth1": "광주광역시",
+    "depth2": "서구",
+    "representativeId": 1015,
+    "representativeName": "치평동",
+    "level": "district"
+  },
+  {
+    "name": "대구광역시",
+    "depth1": "대구광역시",
+    "depth2": "",
+    "representativeId": 0,
+    "representativeName": "",
+    "level": "city"
+  },
+  {
+    "name": "대구광역시 군위군",
+    "depth1": "대구광역시",
+    "depth2": "군위군",
+    "representativeId": 3327,
+    "representativeName": "군위읍",
+    "level": "district"
+  },
+  {
+    "name": "대구광역시 남구",
+    "depth1": "대구광역시",
+    "depth2": "남구",
+    "representativeId": 5563,
+    "representativeName": "대명동",
+    "level": "district"
+  },
+  {
+    "name": "대구광역시 달서구",
+    "depth1": "대구광역시",
+    "depth2": "달서구",
+    "representativeId": 5572,
+    "representativeName": "월성동",
+    "level": "district"
+  },
+  {
+    "name": "대구광역시 달성군",
+    "depth1": "대구광역시",
+    "depth2": "달성군",
+    "representativeId": 817,
+    "representativeName": "다사읍",
+    "level": "district"
+  },
+  {
+    "name": "대구광역시 동구",
+    "depth1": "대구광역시",
+    "depth2": "동구",
+    "representativeId": 5616,
+    "representativeName": "율하동",
+    "level": "district"
+  },
+  {
+    "name": "대구광역시 북구",
+    "depth1": "대구광역시",
+    "depth2": "북구",
+    "representativeId": 5644,
+    "representativeName": "태전동",
+    "level": "district"
+  },
+  {
+    "name": "대구광역시 서구",
+    "depth1": "대구광역시",
+    "depth2": "서구",
+    "representativeId": 5655,
+    "representativeName": "평리동",
+    "level": "district"
+  },
+  {
+    "name": "대구광역시 수성구",
+    "depth1": "대구광역시",
+    "depth2": "수성구",
+    "representativeId": 5663,
+    "representativeName": "범어동",
+    "level": "district"
+  },
+  {
+    "name": "대구광역시 중구",
+    "depth1": "대구광역시",
+    "depth2": "중구",
+    "representativeId": 5682,
+    "representativeName": "남산동",
+    "level": "district"
+  },
+  {
+    "name": "대전광역시",
+    "depth1": "대전광역시",
+    "depth2": "",
+    "representativeId": 0,
+    "representativeName": "",
+    "level": "city"
+  },
+  {
+    "name": "대전광역시 대덕구",
+    "depth1": "대전광역시",
+    "depth2": "대덕구",
+    "representativeId": 1171,
+    "representativeName": "송촌동",
+    "level": "district"
+  },
+  {
+    "name": "대전광역시 동구",
+    "depth1": "대전광역시",
+    "depth2": "동구",
+    "representativeId": 1106,
+    "representativeName": "용전동",
+    "level": "district"
+  },
+  {
+    "name": "대전광역시 서구",
+    "depth1": "대전광역시",
+    "depth2": "서구",
+    "representativeId": 5793,
+    "representativeName": "둔산동",
+    "level": "district"
+  },
+  {
+    "name": "대전광역시 유성구",
+    "depth1": "대전광역시",
+    "depth2": "유성구",
+    "representativeId": 4238,
+    "representativeName": "봉명동",
+    "level": "district"
+  },
+  {
+    "name": "대전광역시 중구",
+    "depth1": "대전광역시",
+    "depth2": "중구",
+    "representativeId": 1116,
+    "representativeName": "대흥동",
+    "level": "district"
+  },
+  {
+    "name": "부산광역시",
+    "depth1": "부산광역시",
+    "depth2": "",
+    "representativeId": 0,
+    "representativeName": "",
+    "level": "city"
+  },
+  {
+    "name": "부산광역시 강서구",
+    "depth1": "부산광역시",
+    "depth2": "강서구",
+    "representativeId": 5873,
+    "representativeName": "명지동",
+    "level": "district"
+  },
+  {
+    "name": "부산광역시 금정구",
+    "depth1": "부산광역시",
+    "depth2": "금정구",
+    "representativeId": 5894,
+    "representativeName": "장전동",
+    "level": "district"
+  },
+  {
+    "name": "부산광역시 기장군",
+    "depth1": "부산광역시",
+    "depth2": "기장군",
+    "representativeId": 4121,
+    "representativeName": "정관읍",
+    "level": "district"
+  },
+  {
+    "name": "부산광역시 남구",
+    "depth1": "부산광역시",
+    "depth2": "남구",
+    "representativeId": 5898,
+    "representativeName": "대연동",
+    "level": "district"
+  },
+  {
+    "name": "부산광역시 동구",
+    "depth1": "부산광역시",
+    "depth2": "동구",
+    "representativeId": 5903,
+    "representativeName": "초량동",
+    "level": "district"
+  },
+  {
+    "name": "부산광역시 동래구",
+    "depth1": "부산광역시",
+    "depth2": "동래구",
+    "representativeId": 5910,
+    "representativeName": "온천동",
+    "level": "district"
+  },
+  {
+    "name": "부산광역시 부산진구",
+    "depth1": "부산광역시",
+    "depth2": "부산진구",
+    "representativeId": 5918,
+    "representativeName": "부전동",
+    "level": "district"
+  },
+  {
+    "name": "부산광역시 북구",
+    "depth1": "부산광역시",
+    "depth2": "북구",
+    "representativeId": 5924,
+    "representativeName": "화명동",
+    "level": "district"
+  },
+  {
+    "name": "부산광역시 사상구",
+    "depth1": "부산광역시",
+    "depth2": "사상구",
+    "representativeId": 662,
+    "representativeName": "괘법동",
+    "level": "district"
+  },
+  {
+    "name": "부산광역시 사하구",
+    "depth1": "부산광역시",
+    "depth2": "사하구",
+    "representativeId": 5933,
+    "representativeName": "하단동",
+    "level": "district"
+  },
+  {
+    "name": "부산광역시 서구",
+    "depth1": "부산광역시",
+    "depth2": "서구",
+    "representativeId": 475,
+    "representativeName": "암남동",
+    "level": "district"
+  },
+  {
+    "name": "부산광역시 수영구",
+    "depth1": "부산광역시",
+    "depth2": "수영구",
+    "representativeId": 5956,
+    "representativeName": "광안동",
+    "level": "district"
+  },
+  {
+    "name": "부산광역시 연제구",
+    "depth1": "부산광역시",
+    "depth2": "연제구",
+    "representativeId": 5960,
+    "representativeName": "연산동",
+    "level": "district"
+  },
+  {
+    "name": "부산광역시 영도구",
+    "depth1": "부산광역시",
+    "depth2": "영도구",
+    "representativeId": 5968,
+    "representativeName": "동삼동",
+    "level": "district"
+  },
+  {
+    "name": "부산광역시 중구",
+    "depth1": "부산광역시",
+    "depth2": "중구",
+    "representativeId": 453,
+    "representativeName": "중앙동",
+    "level": "district"
+  },
+  {
+    "name": "부산광역시 해운대구",
+    "depth1": "부산광역시",
+    "depth2": "해운대구",
+    "representativeId": 6026,
+    "representativeName": "우동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시",
+    "depth1": "서울특별시",
+    "depth2": "",
+    "representativeId": 0,
+    "representativeName": "",
+    "level": "city"
+  },
+  {
+    "name": "서울특별시 강남구",
+    "depth1": "서울특별시",
+    "depth2": "강남구",
+    "representativeId": 6035,
+    "representativeName": "역삼동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 강동구",
+    "depth1": "서울특별시",
+    "depth2": "강동구",
+    "representativeId": 434,
+    "representativeName": "상일동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 강북구",
+    "depth1": "서울특별시",
+    "depth2": "강북구",
+    "representativeId": 142,
+    "representativeName": "미아동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 강서구",
+    "depth1": "서울특별시",
+    "depth2": "강서구",
+    "representativeId": 6052,
+    "representativeName": "마곡동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 관악구",
+    "depth1": "서울특별시",
+    "depth2": "관악구",
+    "representativeId": 355,
+    "representativeName": "신림동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 광진구",
+    "depth1": "서울특별시",
+    "depth2": "광진구",
+    "representativeId": 6059,
+    "representativeName": "구의동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 구로구",
+    "depth1": "서울특별시",
+    "depth2": "구로구",
+    "representativeId": 6064,
+    "representativeName": "구로동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 금천구",
+    "depth1": "서울특별시",
+    "depth2": "금천구",
+    "representativeId": 295,
+    "representativeName": "가산동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 노원구",
+    "depth1": "서울특별시",
+    "depth2": "노원구",
+    "representativeId": 6073,
+    "representativeName": "상계동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 도봉구",
+    "depth1": "서울특별시",
+    "depth2": "도봉구",
+    "representativeId": 6080,
+    "representativeName": "창동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 동대문구",
+    "depth1": "서울특별시",
+    "depth2": "동대문구",
+    "representativeId": 6085,
+    "representativeName": "장안동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 동작구",
+    "depth1": "서울특별시",
+    "depth2": "동작구",
+    "representativeId": 6093,
+    "representativeName": "상도동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 마포구",
+    "depth1": "서울특별시",
+    "depth2": "마포구",
+    "representativeId": 237,
+    "representativeName": "상암동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 서대문구",
+    "depth1": "서울특별시",
+    "depth2": "서대문구",
+    "representativeId": 211,
+    "representativeName": "연희동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 서초구",
+    "depth1": "서울특별시",
+    "depth2": "서초구",
+    "representativeId": 6128,
+    "representativeName": "서초동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 성동구",
+    "depth1": "서울특별시",
+    "depth2": "성동구",
+    "representativeId": 6140,
+    "representativeName": "성수동1가",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 성북구",
+    "depth1": "서울특별시",
+    "depth2": "성북구",
+    "representativeId": 6145,
+    "representativeName": "길음동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 송파구",
+    "depth1": "서울특별시",
+    "depth2": "송파구",
+    "representativeId": 6188,
+    "representativeName": "잠실동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 양천구",
+    "depth1": "서울특별시",
+    "depth2": "양천구",
+    "representativeId": 6190,
+    "representativeName": "목동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 영등포구",
+    "depth1": "서울특별시",
+    "depth2": "영등포구",
+    "representativeId": 6216,
+    "representativeName": "여의도동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 용산구",
+    "depth1": "서울특별시",
+    "depth2": "용산구",
+    "representativeId": 50,
+    "representativeName": "한남동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 은평구",
+    "depth1": "서울특별시",
+    "depth2": "은평구",
+    "representativeId": 205,
+    "representativeName": "진관동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 종로구",
+    "depth1": "서울특별시",
+    "depth2": "종로구",
+    "representativeId": 6,
+    "representativeName": "부암동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 중구",
+    "depth1": "서울특별시",
+    "depth2": "중구",
+    "representativeId": 28,
+    "representativeName": "신당동",
+    "level": "district"
+  },
+  {
+    "name": "서울특별시 중랑구",
+    "depth1": "서울특별시",
+    "depth2": "중랑구",
+    "representativeId": 6407,
+    "representativeName": "면목동",
+    "level": "district"
+  },
+  {
+    "name": "세종특별자치시",
+    "depth1": "세종특별자치시",
+    "depth2": "",
+    "representativeId": 0,
+    "representativeName": "",
+    "level": "city"
+  },
+  {
+    "name": "세종특별자치시 세종특별자치시",
+    "depth1": "세종특별자치시",
+    "depth2": "세종특별자치시",
+    "representativeId": 6412,
+    "representativeName": "가람동",
+    "level": "district"
+  },
+  {
+    "name": "울산광역시",
+    "depth1": "울산광역시",
+    "depth2": "",
+    "representativeId": 0,
+    "representativeName": "",
+    "level": "city"
+  },
+  {
+    "name": "울산광역시 남구",
+    "depth1": "울산광역시",
+    "depth2": "남구",
+    "representativeId": 1201,
+    "representativeName": "삼산동",
+    "level": "district"
+  },
+  {
+    "name": "울산광역시 동구",
+    "depth1": "울산광역시",
+    "depth2": "동구",
+    "representativeId": 1210,
+    "representativeName": "방어동",
+    "level": "district"
+  },
+  {
+    "name": "울산광역시 북구",
+    "depth1": "울산광역시",
+    "depth2": "북구",
+    "representativeId": 6458,
+    "representativeName": "화봉동",
+    "level": "district"
+  },
+  {
+    "name": "울산광역시 울주군",
+    "depth1": "울산광역시",
+    "depth2": "울주군",
+    "representativeId": 1232,
+    "representativeName": "범서읍",
+    "level": "district"
+  },
+  {
+    "name": "울산광역시 중구",
+    "depth1": "울산광역시",
+    "depth2": "중구",
+    "representativeId": 1188,
+    "representativeName": "태화동",
+    "level": "district"
+  },
+  {
+    "name": "인천광역시",
+    "depth1": "인천광역시",
+    "depth2": "",
+    "representativeId": 0,
+    "representativeName": "",
+    "level": "city"
+  },
+  {
+    "name": "인천광역시 강화군",
+    "depth1": "인천광역시",
+    "depth2": "강화군",
+    "representativeId": 969,
+    "representativeName": "강화읍",
+    "level": "district"
+  },
+  {
+    "name": "인천광역시 계양구",
+    "depth1": "인천광역시",
+    "depth2": "계양구",
+    "representativeId": 6489,
+    "representativeName": "작전동",
+    "level": "district"
+  },
+  {
+    "name": "인천광역시 남동구",
+    "depth1": "인천광역시",
+    "depth2": "남동구",
+    "representativeId": 6498,
+    "representativeName": "논현동",
+    "level": "district"
+  },
+  {
+    "name": "인천광역시 동구",
+    "depth1": "인천광역시",
+    "depth2": "동구",
+    "representativeId": 6506,
+    "representativeName": "송림동",
+    "level": "district"
+  },
+  {
+    "name": "인천광역시 미추홀구",
+    "depth1": "인천광역시",
+    "depth2": "미추홀구",
+    "representativeId": 6514,
+    "representativeName": "주안동",
+    "level": "district"
+  },
+  {
+    "name": "인천광역시 부평구",
+    "depth1": "인천광역시",
+    "depth2": "부평구",
+    "representativeId": 6519,
+    "representativeName": "부평동",
+    "level": "district"
+  },
+  {
+    "name": "인천광역시 서구",
+    "depth1": "인천광역시",
+    "depth2": "서구",
+    "representativeId": 11007,
+    "representativeName": "아라동",
+    "level": "district"
+  },
+  {
+    "name": "인천광역시 연수구",
+    "depth1": "인천광역시",
+    "depth2": "연수구",
+    "representativeId": 6543,
+    "representativeName": "송도동",
+    "level": "district"
+  },
+  {
+    "name": "인천광역시 옹진군",
+    "depth1": "인천광역시",
+    "depth2": "옹진군",
+    "representativeId": 990,
+    "representativeName": "영흥면",
+    "level": "district"
+  },
+  {
+    "name": "인천광역시 중구",
+    "depth1": "인천광역시",
+    "depth2": "중구",
+    "representativeId": 837,
+    "representativeName": "운서동",
+    "level": "district"
+  },
+  {
+    "name": "전라남도",
+    "depth1": "전라남도",
+    "depth2": "",
+    "representativeId": 0,
+    "representativeName": "",
+    "level": "city"
+  },
+  {
+    "name": "전라남도 강진군",
+    "depth1": "전라남도",
+    "depth2": "강진군",
+    "representativeId": 2958,
+    "representativeName": "강진읍",
+    "level": "district"
+  },
+  {
+    "name": "전라남도 고흥군",
+    "depth1": "전라남도",
+    "depth2": "고흥군",
+    "representativeId": 2899,
+    "representativeName": "고흥읍",
+    "level": "district"
+  },
+  {
+    "name": "전라남도 곡성군",
+    "depth1": "전라남도",
+    "depth2": "곡성군",
+    "representativeId": 2878,
+    "representativeName": "곡성읍",
+    "level": "district"
+  },
+  {
+    "name": "전라남도 광양시",
+    "depth1": "전라남도",
+    "depth2": "광양시",
+    "representativeId": 2852,
+    "representativeName": "광양읍",
+    "level": "district"
+  },
+  {
+    "name": "전라남도 구례군",
+    "depth1": "전라남도",
+    "depth2": "구례군",
+    "representativeId": 2890,
+    "representativeName": "구례읍",
+    "level": "district"
+  },
+  {
+    "name": "전라남도 나주시",
+    "depth1": "전라남도",
+    "depth2": "나주시",
+    "representativeId": 2850,
+    "representativeName": "빛가람동",
+    "level": "district"
+  },
+  {
+    "name": "전라남도 담양군",
+    "depth1": "전라남도",
+    "depth2": "담양군",
+    "representativeId": 2865,
+    "representativeName": "담양읍",
+    "level": "district"
+  },
+  {
+    "name": "전라남도 목포시",
+    "depth1": "전라남도",
+    "depth2": "목포시",
+    "representativeId": 2770,
+    "representativeName": "옥암동",
+    "level": "district"
+  },
+  {
+    "name": "전라남도 무안군",
+    "depth1": "전라남도",
+    "depth2": "무안군",
+    "representativeId": 3000,
+    "representativeName": "삼향읍",
+    "level": "district"
+  },
+  {
+    "name": "전라남도 보성군",
+    "depth1": "전라남도",
+    "depth2": "보성군",
+    "representativeId": 2919,
+    "representativeName": "벌교읍",
+    "level": "district"
+  },
+  {
+    "name": "전라남도 순천시",
+    "depth1": "전라남도",
+    "depth2": "순천시",
+    "representativeId": 2806,
+    "representativeName": "해룡면",
+    "level": "district"
+  },
+  {
+    "name": "전라남도 신안군",
+    "depth1": "전라남도",
+    "depth2": "신안군",
+    "representativeId": 3071,
+    "representativeName": "압해읍",
+    "level": "district"
+  },
+  {
+    "name": "전라남도 여수시",
+    "depth1": "전라남도",
+    "depth2": "여수시",
+    "representativeId": 6737,
+    "representativeName": "웅천동",
+    "level": "district"
+  },
+  {
+    "name": "전라남도 영광군",
+    "depth1": "전라남도",
+    "depth2": "영광군",
+    "representativeId": 3019,
+    "representativeName": "영광읍",
+    "level": "district"
+  },
+  {
+    "name": "전라남도 영암군",
+    "depth1": "전라남도",
+    "depth2": "영암군",
+    "representativeId": 2986,
+    "representativeName": "삼호읍",
+    "level": "district"
+  },
+  {
+    "name": "전라남도 완도군",
+    "depth1": "전라남도",
+    "depth2": "완도군",
+    "representativeId": 3044,
+    "representativeName": "완도읍",
+    "level": "district"
+  },
+  {
+    "name": "전라남도 장성군",
+    "depth1": "전라남도",
+    "depth2": "장성군",
+    "representativeId": 3032,
+    "representativeName": "장성읍",
+    "level": "district"
+  },
+  {
+    "name": "전라남도 장흥군",
+    "depth1": "전라남도",
+    "depth2": "장흥군",
+    "representativeId": 2947,
+    "representativeName": "장흥읍",
+    "level": "district"
+  },
+  {
+    "name": "전라남도 진도군",
+    "depth1": "전라남도",
+    "depth2": "진도군",
+    "representativeId": 3059,
+    "representativeName": "진도읍",
+    "level": "district"
+  },
+  {
+    "name": "전라남도 함평군",
+    "depth1": "전라남도",
+    "depth2": "함평군",
+    "representativeId": 3009,
+    "representativeName": "함평읍",
+    "level": "district"
+  },
+  {
+    "name": "전라남도 해남군",
+    "depth1": "전라남도",
+    "depth2": "해남군",
+    "representativeId": 2970,
+    "representativeName": "해남읍",
+    "level": "district"
+  },
+  {
+    "name": "전라남도 화순군",
+    "depth1": "전라남도",
+    "depth2": "화순군",
+    "representativeId": 2932,
+    "representativeName": "화순읍",
+    "level": "district"
+  },
+  {
+    "name": "전라북도",
+    "depth1": "전라북도",
+    "depth2": "",
+    "representativeId": 0,
+    "representativeName": "",
+    "level": "city"
+  },
+  {
+    "name": "전라북도 고창군",
+    "depth1": "전라북도",
+    "depth2": "고창군",
+    "representativeId": 2720,
+    "representativeName": "고창읍",
+    "level": "district"
+  },
+  {
+    "name": "전라북도 군산시",
+    "depth1": "전라북도",
+    "depth2": "군산시",
+    "representativeId": 2548,
+    "representativeName": "수송동",
+    "level": "district"
+  },
+  {
+    "name": "전라북도 김제시",
+    "depth1": "전라북도",
+    "depth2": "김제시",
+    "representativeId": 2651,
+    "representativeName": "검산동",
+    "level": "district"
+  },
+  {
+    "name": "전라북도 남원시",
+    "depth1": "전라북도",
+    "depth2": "남원시",
+    "representativeId": 2632,
+    "representativeName": "도통동",
+    "level": "district"
+  },
+  {
+    "name": "전라북도 무주군",
+    "depth1": "전라북도",
+    "depth2": "무주군",
+    "representativeId": 2680,
+    "representativeName": "무주읍",
+    "level": "district"
+  },
+  {
+    "name": "전라북도 부안군",
+    "depth1": "전라북도",
+    "depth2": "부안군",
+    "representativeId": 2735,
+    "representativeName": "부안읍",
+    "level": "district"
+  },
+  {
+    "name": "전라북도 순창군",
+    "depth1": "전라북도",
+    "depth2": "순창군",
+    "representativeId": 2708,
+    "representativeName": "순창읍",
+    "level": "district"
+  },
+  {
+    "name": "전라북도 완주군",
+    "depth1": "전라북도",
+    "depth2": "완주군",
+    "representativeId": 2655,
+    "representativeName": "봉동읍",
+    "level": "district"
+  },
+  {
+    "name": "전라북도 익산시",
+    "depth1": "전라북도",
+    "depth2": "익산시",
+    "representativeId": 2580,
+    "representativeName": "어양동",
+    "level": "district"
+  },
+  {
+    "name": "전라북도 임실군",
+    "depth1": "전라북도",
+    "depth2": "임실군",
+    "representativeId": 2695,
+    "representativeName": "임실읍",
+    "level": "district"
+  },
+  {
+    "name": "전라북도 장수군",
+    "depth1": "전라북도",
+    "depth2": "장수군",
+    "representativeId": 2687,
+    "representativeName": "장수읍",
+    "level": "district"
+  },
+  {
+    "name": "전라북도 전주시 덕진구",
+    "depth1": "전라북도",
+    "depth2": "전주시 덕진구",
+    "representativeId": 6878,
+    "representativeName": "송천동2가",
+    "level": "district"
+  },
+  {
+    "name": "전라북도 전주시 완산구",
+    "depth1": "전라북도",
+    "depth2": "전주시 완산구",
+    "representativeId": 2499,
+    "representativeName": "서신동",
+    "level": "district"
+  },
+  {
+    "name": "전라북도 정읍시",
+    "depth1": "전라북도",
+    "depth2": "정읍시",
+    "representativeId": 2601,
+    "representativeName": "수성동",
+    "level": "district"
+  },
+  {
+    "name": "전라북도 진안군",
+    "depth1": "전라북도",
+    "depth2": "진안군",
+    "representativeId": 2668,
+    "representativeName": "진안읍",
+    "level": "district"
+  },
+  {
+    "name": "제주특별자치도",
+    "depth1": "제주특별자치도",
+    "depth2": "",
+    "representativeId": 0,
+    "representativeName": "",
+    "level": "city"
+  },
+  {
+    "name": "제주특별자치도 서귀포시",
+    "depth1": "제주특별자치도",
+    "depth2": "서귀포시",
+    "representativeId": 3851,
+    "representativeName": "동홍동",
+    "level": "district"
+  },
+  {
+    "name": "제주특별자치도 제주시",
+    "depth1": "제주특별자치도",
+    "depth2": "제주시",
+    "representativeId": 3835,
+    "representativeName": "노형동",
+    "level": "district"
+  },
+  {
+    "name": "충청남도",
+    "depth1": "충청남도",
+    "depth2": "",
+    "representativeId": 0,
+    "representativeName": "",
+    "level": "city"
+  },
+  {
+    "name": "충청남도 계룡시",
+    "depth1": "충청남도",
+    "depth2": "계룡시",
+    "representativeId": 2383,
+    "representativeName": "엄사면",
+    "level": "district"
+  },
+  {
+    "name": "충청남도 공주시",
+    "depth1": "충청남도",
+    "depth2": "공주시",
+    "representativeId": 2310,
+    "representativeName": "신관동",
+    "level": "district"
+  },
+  {
+    "name": "충청남도 금산군",
+    "depth1": "충청남도",
+    "depth2": "금산군",
+    "representativeId": 2402,
+    "representativeName": "금산읍",
+    "level": "district"
+  },
+  {
+    "name": "충청남도 논산시",
+    "depth1": "충청남도",
+    "depth2": "논산시",
+    "representativeId": 7042,
+    "representativeName": "내동",
+    "level": "district"
+  },
+  {
+    "name": "충청남도 당진시",
+    "depth1": "충청남도",
+    "depth2": "당진시",
+    "representativeId": 2388,
+    "representativeName": "송악읍",
+    "level": "district"
+  },
+  {
+    "name": "충청남도 보령시",
+    "depth1": "충청남도",
+    "depth2": "보령시",
+    "representativeId": 7064,
+    "representativeName": "동대동",
+    "level": "district"
+  },
+  {
+    "name": "충청남도 부여군",
+    "depth1": "충청남도",
+    "depth2": "부여군",
+    "representativeId": 2413,
+    "representativeName": "부여읍",
+    "level": "district"
+  },
+  {
+    "name": "충청남도 서산시",
+    "depth1": "충청남도",
+    "depth2": "서산시",
+    "representativeId": 7075,
+    "representativeName": "예천동",
+    "level": "district"
+  },
+  {
+    "name": "충청남도 서천군",
+    "depth1": "충청남도",
+    "depth2": "서천군",
+    "representativeId": 2431,
+    "representativeName": "서천읍",
+    "level": "district"
+  },
+  {
+    "name": "충청남도 아산시",
+    "depth1": "충청남도",
+    "depth2": "아산시",
+    "representativeId": 2333,
+    "representativeName": "배방읍",
+    "level": "district"
+  },
+  {
+    "name": "충청남도 예산군",
+    "depth1": "충청남도",
+    "depth2": "예산군",
+    "representativeId": 2467,
+    "representativeName": "예산읍",
+    "level": "district"
+  },
+  {
+    "name": "충청남도 천안시 동남구",
+    "depth1": "충청남도",
+    "depth2": "천안시 동남구",
+    "representativeId": 2278,
+    "representativeName": "신방동",
+    "level": "district"
+  },
+  {
+    "name": "충청남도 천안시 서북구",
+    "depth1": "충청남도",
+    "depth2": "천안시 서북구",
+    "representativeId": 2292,
+    "representativeName": "불당동",
+    "level": "district"
+  },
+  {
+    "name": "충청남도 청양군",
+    "depth1": "충청남도",
+    "depth2": "청양군",
+    "representativeId": 2444,
+    "representativeName": "청양읍",
+    "level": "district"
+  },
+  {
+    "name": "충청남도 태안군",
+    "depth1": "충청남도",
+    "depth2": "태안군",
+    "representativeId": 2480,
+    "representativeName": "태안읍",
+    "level": "district"
+  },
+  {
+    "name": "충청남도 홍성군",
+    "depth1": "충청남도",
+    "depth2": "홍성군",
+    "representativeId": 2457,
+    "representativeName": "홍북읍",
+    "level": "district"
+  },
+  {
+    "name": "충청북도",
+    "depth1": "충청북도",
+    "depth2": "",
+    "representativeId": 0,
+    "representativeName": "",
+    "level": "city"
+  },
+  {
+    "name": "충청북도 괴산군",
+    "depth1": "충청북도",
+    "depth2": "괴산군",
+    "representativeId": 2231,
+    "representativeName": "괴산읍",
+    "level": "district"
+  },
+  {
+    "name": "충청북도 단양군",
+    "depth1": "충청북도",
+    "depth2": "단양군",
+    "representativeId": 2253,
+    "representativeName": "단양읍",
+    "level": "district"
+  },
+  {
+    "name": "충청북도 보은군",
+    "depth1": "충청북도",
+    "depth2": "보은군",
+    "representativeId": 2186,
+    "representativeName": "보은읍",
+    "level": "district"
+  },
+  {
+    "name": "충청북도 영동군",
+    "depth1": "충청북도",
+    "depth2": "영동군",
+    "representativeId": 2208,
+    "representativeName": "영동읍",
+    "level": "district"
+  },
+  {
+    "name": "충청북도 옥천군",
+    "depth1": "충청북도",
+    "depth2": "옥천군",
+    "representativeId": 2198,
+    "representativeName": "옥천읍",
+    "level": "district"
+  },
+  {
+    "name": "충청북도 음성군",
+    "depth1": "충청북도",
+    "depth2": "음성군",
+    "representativeId": 2244,
+    "representativeName": "금왕읍",
+    "level": "district"
+  },
+  {
+    "name": "충청북도 제천시",
+    "depth1": "충청북도",
+    "depth2": "제천시",
+    "representativeId": 7146,
+    "representativeName": "장락동",
+    "level": "district"
+  },
+  {
+    "name": "충청북도 증평군",
+    "depth1": "충청북도",
+    "depth2": "증평군",
+    "representativeId": 2220,
+    "representativeName": "증평읍",
+    "level": "district"
+  },
+  {
+    "name": "충청북도 진천군",
+    "depth1": "충청북도",
+    "depth2": "진천군",
+    "representativeId": 2224,
+    "representativeName": "덕산읍",
+    "level": "district"
+  },
+  {
+    "name": "충청북도 청주시 상당구",
+    "depth1": "충청북도",
+    "depth2": "청주시 상당구",
+    "representativeId": 7169,
+    "representativeName": "용암동",
+    "level": "district"
+  },
+  {
+    "name": "충청북도 청주시 서원구",
+    "depth1": "충청북도",
+    "depth2": "청주시 서원구",
+    "representativeId": 2116,
+    "representativeName": "분평동",
+    "level": "district"
+  },
+  {
+    "name": "충청북도 청주시 청원구",
+    "depth1": "충청북도",
+    "depth2": "청주시 청원구",
+    "representativeId": 2134,
+    "representativeName": "오창읍",
+    "level": "district"
+  },
+  {
+    "name": "충청북도 청주시 흥덕구",
+    "depth1": "충청북도",
+    "depth2": "청주시 흥덕구",
+    "representativeId": 2127,
+    "representativeName": "가경동",
+    "level": "district"
+  },
+  {
+    "name": "충청북도 충주시",
+    "depth1": "충청북도",
+    "depth2": "충주시",
+    "representativeId": 2165,
+    "representativeName": "연수동",
+    "level": "district"
+  }
 ]

@@ -1,1 +1,35 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "Noto Sans KR", system-ui, -apple-system, sans-serif;
+  --color-carrot-50: #FFF8F0;
+  --color-carrot-100: #FFEAD4;
+  --color-carrot-200: #FFD4A8;
+  --color-carrot-300: #FFB876;
+  --color-carrot-400: #FF9A42;
+  --color-carrot-500: #FF6F0F;
+  --color-carrot-600: #E55D00;
+  --color-carrot-700: #C24E00;
+  --color-carrot-800: #9A3E00;
+  --color-carrot-900: #7A3200;
+  --color-warm-50: #FEFCF9;
+  --color-warm-100: #F8F4EF;
+  --color-warm-200: #EDE6DC;
+  --color-warm-300: #D5CBC0;
+  --color-warm-400: #A89A8C;
+  --color-warm-500: #7A6E62;
+  --color-warm-600: #5C5248;
+  --color-warm-700: #3D3630;
+  --color-warm-800: #262120;
+  --color-warm-900: #1A1615;
+}
+
+body {
+  background-color: var(--color-warm-50);
+  color: var(--color-warm-800);
+}
+
+::selection {
+  background-color: var(--color-carrot-200);
+  color: var(--color-warm-900);
+}
