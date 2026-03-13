@@ -34,7 +34,7 @@ export default function ArticleCard({ article }: ArticleCardProps) {
 
   return (
     <a
-      href={article.href.startsWith("http") ? article.href : `https://www.daangn.com${article.href}`}
+      href={article.href}
       target="_blank"
       rel="noopener noreferrer"
       className="group block bg-white rounded-2xl overflow-hidden hover:shadow-md transition-all duration-200 border border-warm-200 hover:border-warm-300"

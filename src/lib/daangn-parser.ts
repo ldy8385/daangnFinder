@@ -27,6 +27,28 @@ interface RawSiblingRegion {
   name3?: string;
 }
 
+const ALLOWED_HREF_ORIGIN = "https://www.daangn.com";
+const ALLOWED_IMAGE_HOSTS = [
+  "dnvefa72aowie.cloudfront.net",
+  "img.kr.gcp-karroter.net",
+];
+
+function sanitizeHref(href: string): string {
+  if (href.startsWith(ALLOWED_HREF_ORIGIN + "/")) return href;
+  if (href.startsWith("/")) return `${ALLOWED_HREF_ORIGIN}${href}`;
+  return "";
+}
+
+function sanitizeThumbnail(url: string): string {
+  try {
+    const parsed = new URL(url);
+    if (parsed.protocol === "https:" && ALLOWED_IMAGE_HOSTS.includes(parsed.hostname)) {
+      return url;
+    }
+  } catch {}
+  return "";
+}
+
 export function parseArticles(data: DaangnRouteData): Article[] {
   const raw = data.allPage?.fleamarketArticles;
   if (!Array.isArray(raw)) return [];
@@ -34,15 +56,18 @@ export function parseArticles(data: DaangnRouteData): Article[] {
   return raw
     .map((item): Article | null => {
       try {
+        const href = sanitizeHref(String(item.href || ""));
+        if (!href) return null;
+
         return {
           id: String(item.id || ""),
           title: String(item.title || ""),
           price: Math.floor(parseFloat(String(item.price || "0"))),
-          thumbnail: String(item.thumbnail || ""),
+          thumbnail: sanitizeThumbnail(String(item.thumbnail || "")),
           status: String(item.status || "Ongoing") as Article["status"],
           region: item.region?.name ? String(item.region.name) : "",
           createdAt: String(item.createdAt || ""),
-          href: String(item.href || ""),
+          href,
         };
       } catch {
         return null;

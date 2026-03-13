@@ -17,7 +17,9 @@ export async function GET(request: NextRequest) {
   const params = request.nextUrl.searchParams;
   const search = params.get("search");
   const onlyOnSale = params.get("onlyOnSale") === "true";
-  const sort = (params.get("sort") || "recent") as SortType;
+  const VALID_SORTS: SortType[] = ["recent", "price_asc", "price_desc"];
+  const sortParam = params.get("sort") || "recent";
+  const sort: SortType = VALID_SORTS.includes(sortParam as SortType) ? (sortParam as SortType) : "recent";
   const level = params.get("level") || "district";
 
   if (!search) {
