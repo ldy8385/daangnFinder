@@ -1,0 +1,5 @@
+{"type":"server-started","port":52122,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:52122","screen_dir":"/Users/dong/workspace/daangnFinder/.superpowers/brainstorm/25792-1773384412"}
+{"type":"screen-added","file":"/Users/dong/workspace/daangnFinder/.superpowers/brainstorm/25792-1773384412/region-select-ui.html"}
+{"type":"screen-added","file":"/Users/dong/workspace/daangnFinder/.superpowers/brainstorm/25792-1773384412/waiting-1.html"}
+{"type":"screen-added","file":"/Users/dong/workspace/daangnFinder/.superpowers/brainstorm/25792-1773384412/design-overview.html"}
+{"type":"server-stopped","reason":"idle timeout"}

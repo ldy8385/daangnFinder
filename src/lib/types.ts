@@ -10,11 +10,12 @@ export interface Article {
 }
 
 export interface RegionEntry {
-  name: string;       // "서울특별시 강남구"
+  name: string;       // "서울특별시 강남구" or "서울특별시"
   depth1: string;     // "서울특별시"
-  depth2: string;     // "강남구"
+  depth2: string;     // "강남구" or "" for city-level
   representativeId: number;
   representativeName: string;
+  level: "city" | "district";
 }
 
 export interface SiblingRegion {

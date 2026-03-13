@@ -1,5 +1,6 @@
 import { parseArticles, parseSiblingRegions } from "./daangn-parser";
-import { Article, SiblingRegion, SortType } from "./types";
+import { Article, SiblingRegion, SortType, RegionEntry } from "./types";
+import { getDistrictsByCity } from "./regions";
 
 const DAANGN_BASE = "https://www.daangn.com/kr/buy-sell/s/";
 const CHUNK_SIZE = 10;
@@ -115,5 +116,83 @@ export async function searchDaangn(
   return {
     articles: sorted,
     regionCount: siblingRegions.length,
+  };
+}
+
+export async function searchDaangnCity(
+  cityName: string,
+  search: string,
+  onlyOnSale: boolean,
+  sort: SortType
+): Promise<{ articles: Article[]; regionCount: number }> {
+  const districts = getDistrictsByCity(cityName);
+  if (districts.length === 0) {
+    return { articles: [], regionCount: 0 };
+  }
+
+  // Step 1: Fetch all district representative dongs in parallel to collect siblingRegions
+  const repRegions: SiblingRegion[] = districts.map((d) => ({
+    id: d.representativeId,
+    name: d.representativeName,
+  }));
+
+  const repResults = await Promise.allSettled(
+    repRegions.map(async (region) => {
+      const url = buildDaangnUrl(region.name, region.id, search, onlyOnSale);
+      const html = await fetchWithTimeout(url, REQUEST_TIMEOUT);
+      const articles = parseArticles(html);
+      const siblings = parseSiblingRegions(html);
+      return { articles, siblings, fetchedId: region.id };
+    })
+  );
+
+  // Collect articles from representative dongs + all sibling region IDs
+  let allArticles: Article[] = [];
+  const allSiblingIds = new Set<number>();
+  const fetchedIds = new Set<number>();
+
+  for (const result of repResults) {
+    if (result.status !== "fulfilled") continue;
+    const { articles, siblings, fetchedId } = result.value;
+    allArticles = allArticles.concat(articles);
+    fetchedIds.add(fetchedId);
+    for (const s of siblings) {
+      allSiblingIds.add(s.id);
+    }
+  }
+
+  // Step 2: Determine remaining regions (siblings not yet fetched)
+  // Each representative dong's siblingRegions includes all dongs in that 구
+  // We already fetched the representative dongs, so filter those out
+  const remainingRegions: SiblingRegion[] = [];
+  const seenIds = new Set<number>(fetchedIds);
+
+  for (const result of repResults) {
+    if (result.status !== "fulfilled") continue;
+    for (const s of result.value.siblings) {
+      if (!seenIds.has(s.id)) {
+        remainingRegions.push(s);
+        seenIds.add(s.id);
+      }
+    }
+  }
+
+  // Step 3: Fetch remaining sibling regions in chunks
+  for (let i = 0; i < remainingRegions.length; i += CHUNK_SIZE) {
+    const chunk = remainingRegions.slice(i, i + CHUNK_SIZE);
+    const chunkArticles = await fetchChunk(chunk, search, onlyOnSale);
+    allArticles = allArticles.concat(chunkArticles);
+
+    if (i + CHUNK_SIZE < remainingRegions.length) {
+      await sleep(CHUNK_DELAY);
+    }
+  }
+
+  const deduplicated = deduplicateArticles(allArticles);
+  const sorted = sortArticles(deduplicated, sort);
+
+  return {
+    articles: sorted,
+    regionCount: seenIds.size,
   };
 }

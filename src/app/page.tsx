@@ -26,12 +26,18 @@ export default function Home() {
 
       try {
         const params = new URLSearchParams({
-          regionName: region.representativeName,
-          regionId: String(region.representativeId),
           search: query,
           onlyOnSale: String(sale),
           sort: sortBy,
+          level: region.level,
         });
+
+        if (region.level === "city") {
+          params.set("cityName", region.depth1);
+        } else {
+          params.set("regionName", region.representativeName);
+          params.set("regionId", String(region.representativeId));
+        }
 
         const res = await fetch(`/api/search?${params}`);
         if (!res.ok) {

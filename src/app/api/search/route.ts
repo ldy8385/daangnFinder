@@ -1,6 +1,6 @@
 // src/app/api/search/route.ts
 import { NextRequest, NextResponse } from "next/server";
-import { searchDaangn } from "@/lib/daangn-fetcher";
+import { searchDaangn, searchDaangnCity } from "@/lib/daangn-fetcher";
 import { isRateLimited } from "@/lib/rate-limit";
 import { SortType } from "@/lib/types";
 
@@ -15,27 +15,41 @@ export async function GET(request: NextRequest) {
   }
 
   const params = request.nextUrl.searchParams;
-  const regionName = params.get("regionName");
-  const regionId = params.get("regionId");
   const search = params.get("search");
   const onlyOnSale = params.get("onlyOnSale") !== "false";
   const sort = (params.get("sort") || "recent") as SortType;
+  const level = params.get("level") || "district";
 
-  if (!regionName || !regionId || !search) {
+  if (!search) {
     return NextResponse.json(
-      { error: "Missing required parameters: regionName, regionId, search" },
+      { error: "Missing required parameter: search" },
       { status: 400 }
     );
   }
 
   try {
-    const result = await searchDaangn(
-      regionName,
-      parseInt(regionId, 10),
-      search,
-      onlyOnSale,
-      sort
-    );
+    let result;
+
+    if (level === "city") {
+      const cityName = params.get("cityName");
+      if (!cityName) {
+        return NextResponse.json(
+          { error: "Missing required parameter: cityName" },
+          { status: 400 }
+        );
+      }
+      result = await searchDaangnCity(cityName, search, onlyOnSale, sort);
+    } else {
+      const regionName = params.get("regionName");
+      const regionId = params.get("regionId");
+      if (!regionName || !regionId) {
+        return NextResponse.json(
+          { error: "Missing required parameters: regionName, regionId" },
+          { status: 400 }
+        );
+      }
+      result = await searchDaangn(regionName, parseInt(regionId, 10), search, onlyOnSale, sort);
+    }
 
     return NextResponse.json({
       articles: result.articles,

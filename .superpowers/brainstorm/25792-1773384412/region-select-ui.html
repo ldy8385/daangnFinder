@@ -1,0 +1,58 @@
+<h2>지역 선택 방식</h2>
+<p class="subtitle">시/구 단위로 지역을 어떻게 선택할까요?</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>2단계 드롭다운</h3>
+      <p>시/도 선택 → 구/군 선택 (2개의 셀렉트 박스)</p>
+      <div class="mockup" style="margin-top:12px">
+        <div class="mockup-body" style="display:flex;gap:12px;align-items:center">
+          <select class="mock-input" style="flex:1" disabled>
+            <option>서울특별시</option>
+          </select>
+          <span style="color:#888">→</span>
+          <select class="mock-input" style="flex:1" disabled>
+            <option>강남구</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>텍스트 자동완성</h3>
+      <p>"강남" 입력하면 "서울 강남구", "경기 성남시" 등 자동 추천</p>
+      <div class="mockup" style="margin-top:12px">
+        <div class="mockup-body">
+          <input class="mock-input" value="강남" style="width:100%;margin-bottom:8px" disabled>
+          <div style="border:1px solid #333;border-radius:8px;overflow:hidden">
+            <div style="padding:10px 14px;border-bottom:1px solid #333;background:#1a1a2e">📍 서울특별시 강남구</div>
+            <div style="padding:10px 14px;border-bottom:1px solid #333">📍 경기도 성남시 중원구</div>
+            <div style="padding:10px 14px">📍 서울특별시 강동구</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>혼합 방식</h3>
+      <p>드롭다운 + 자동완성 모두 지원. 드롭다운으로 탐색하거나 직접 타이핑해서 검색</p>
+      <div class="mockup" style="margin-top:12px">
+        <div class="mockup-body">
+          <input class="mock-input" placeholder="지역명 입력 또는 아래에서 선택" style="width:100%;margin-bottom:8px" disabled>
+          <div style="display:flex;gap:8px">
+            <select class="mock-input" style="flex:1" disabled><option>서울특별시</option></select>
+            <select class="mock-input" style="flex:1" disabled><option>강남구</option></select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
