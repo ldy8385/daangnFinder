@@ -1,5 +1,8 @@
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Article } from "@/lib/types";
 import ArticleCard from "./ArticleCard";
+
+const PAGE_SIZE = 40;
 
 interface ArticleGridProps {
   articles: Article[];
@@ -21,6 +24,38 @@ function SkeletonCard() {
 }
 
 export default function ArticleGrid({ articles, isLoading, hasSearched }: ArticleGridProps) {
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const sentinelRef = useRef<HTMLDivElement>(null);
+
+  // Reset visible count when articles change
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [articles]);
+
+  const loadMore = useCallback(() => {
+    setVisibleCount((prev) => Math.min(prev + PAGE_SIZE, articles.length));
+  }, [articles.length]);
+
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          loadMore();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [loadMore]);
+
+  const visibleArticles = articles.slice(0, visibleCount);
+  const hasMore = visibleCount < articles.length;
+
   if (isLoading) {
     return (
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
@@ -72,10 +107,13 @@ export default function ArticleGrid({ articles, isLoading, hasSearched }: Articl
   }
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-      {articles.map((article) => (
-        <ArticleCard key={article.id} article={article} />
-      ))}
-    </div>
+    <>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+        {visibleArticles.map((article) => (
+          <ArticleCard key={article.id} article={article} />
+        ))}
+      </div>
+      {hasMore && <div ref={sentinelRef} className="h-10" />}
+    </>
   );
 }

@@ -1,25 +1,46 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 import SearchBar from "@/components/SearchBar";
 import SortFilter from "@/components/SortFilter";
 import ArticleGrid from "@/components/ArticleGrid";
 import { Article, RegionEntry, SortType, SearchResult } from "@/lib/types";
 
 export default function Home() {
-  const [articles, setArticles] = useState<Article[]>([]);
+  const [rawArticles, setRawArticles] = useState<Article[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
   const [onlyOnSale, setOnlyOnSale] = useState(false);
   const [sort, setSort] = useState<SortType>("recent");
   const [resultCount, setResultCount] = useState(0);
   const [regionCount, setRegionCount] = useState(0);
+  const [truncated, setTruncated] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [lastRegion, setLastRegion] = useState<RegionEntry | null>(null);
   const [lastQuery, setLastQuery] = useState("");
 
+  const displayedArticles = useMemo(() => {
+    let filtered = rawArticles;
+    if (onlyOnSale) {
+      filtered = filtered.filter((a) => a.status === "Ongoing");
+    }
+    const sorted = [...filtered];
+    switch (sort) {
+      case "recent":
+        sorted.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+        break;
+      case "price_asc":
+        sorted.sort((a, b) => a.price - b.price);
+        break;
+      case "price_desc":
+        sorted.sort((a, b) => b.price - a.price);
+        break;
+    }
+    return sorted;
+  }, [rawArticles, onlyOnSale, sort]);
+
   const doSearch = useCallback(
-    async (region: RegionEntry, query: string, sale: boolean, sortBy: SortType) => {
+    async (region: RegionEntry, query: string) => {
       setIsLoading(true);
       setError(null);
       setHasSearched(true);
@@ -27,8 +48,8 @@ export default function Home() {
       try {
         const params = new URLSearchParams({
           search: query,
-          onlyOnSale: String(sale),
-          sort: sortBy,
+          onlyOnSale: "false",
+          sort: "recent",
           level: region.level,
         });
 
@@ -46,12 +67,13 @@ export default function Home() {
         }
 
         const data: SearchResult = await res.json();
-        setArticles(data.articles);
+        setRawArticles(data.articles);
         setResultCount(data.resultCount);
         setRegionCount(data.regionCount);
+        setTruncated(data.truncated);
       } catch (err) {
         setError(err instanceof Error ? err.message : "검색에 실패했습니다");
-        setArticles([]);
+        setRawArticles([]);
       } finally {
         setIsLoading(false);
       }
@@ -62,21 +84,15 @@ export default function Home() {
   const handleSearch = (region: RegionEntry, query: string) => {
     setLastRegion(region);
     setLastQuery(query);
-    doSearch(region, query, onlyOnSale, sort);
+    doSearch(region, query);
   };
 
   const handleOnlyOnSaleChange = (value: boolean) => {
     setOnlyOnSale(value);
-    if (lastRegion && lastQuery) {
-      doSearch(lastRegion, lastQuery, value, sort);
-    }
   };
 
   const handleSortChange = (value: SortType) => {
     setSort(value);
-    if (lastRegion && lastQuery) {
-      doSearch(lastRegion, lastQuery, onlyOnSale, value);
-    }
   };
 
   return (
@@ -130,11 +146,17 @@ export default function Home() {
           />
         )}
 
+        {truncated && !isLoading && (
+          <div className="mb-4 px-4 py-3 bg-amber-50 border border-amber-200 rounded-xl text-sm text-amber-700">
+            결과가 너무 많아 일부만 표시됩니다. 더 정확한 검색어를 사용하거나 구 단위로 검색해보세요.
+          </div>
+        )}
+
         {error && (
           <div className="text-center py-12">
             <p className="text-warm-600">{error}</p>
             <button
-              onClick={() => lastRegion && lastQuery && doSearch(lastRegion, lastQuery, onlyOnSale, sort)}
+              onClick={() => lastRegion && lastQuery && doSearch(lastRegion, lastQuery)}
               className="mt-3 px-5 py-2.5 bg-carrot-500 text-white rounded-full font-medium hover:bg-carrot-600 transition-colors"
             >
               다시 시도
@@ -144,7 +166,7 @@ export default function Home() {
 
         {!error && (
           <ArticleGrid
-            articles={articles}
+            articles={displayedArticles}
             isLoading={isLoading}
             hasSearched={hasSearched}
           />

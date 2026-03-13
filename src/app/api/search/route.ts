@@ -57,6 +57,7 @@ export async function GET(request: NextRequest) {
       articles: result.articles,
       resultCount: result.articles.length,
       regionCount: result.regionCount,
+      truncated: result.truncated,
     });
   } catch (error) {
     console.error("Search error:", error);

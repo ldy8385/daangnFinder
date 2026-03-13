@@ -7,6 +7,8 @@ const REMIX_DATA_PARAM = "&_data=routes%2Fkr.buy-sell.s";
 const CHUNK_SIZE = 10;
 const REQUEST_TIMEOUT = 10000;
 const CHUNK_DELAY = 100;
+const SEARCH_TIME_BUDGET = 8000; // 8s — leave headroom for Vercel's 10s limit
+const MAX_ARTICLES = 3000;
 
 function buildDaangnUrl(regionName: string, regionId: number, search: string, onlyOnSale: boolean): string {
   const params = new URLSearchParams({
@@ -80,7 +82,10 @@ export async function searchDaangn(
   search: string,
   onlyOnSale: boolean,
   sort: SortType
-): Promise<{ articles: Article[]; regionCount: number }> {
+): Promise<{ articles: Article[]; regionCount: number; truncated: boolean }> {
+  const startTime = Date.now();
+  let truncated = false;
+
   // Step 1: Fetch representative region to get siblingRegions
   const firstUrl = buildDaangnUrl(regionName, regionId, search, onlyOnSale);
   const firstData = await fetchRouteData(firstUrl, REQUEST_TIMEOUT);
@@ -92,6 +97,7 @@ export async function searchDaangn(
     return {
       articles: sortArticles(firstArticles, sort),
       regionCount: 1,
+      truncated: false,
     };
   }
 
@@ -102,6 +108,11 @@ export async function searchDaangn(
   let allArticles = [...firstArticles];
 
   for (let i = 0; i < remainingRegions.length; i += CHUNK_SIZE) {
+    if (Date.now() - startTime > SEARCH_TIME_BUDGET || allArticles.length >= MAX_ARTICLES) {
+      truncated = true;
+      break;
+    }
+
     const chunk = remainingRegions.slice(i, i + CHUNK_SIZE);
     const chunkArticles = await fetchChunk(chunk, search, onlyOnSale);
     allArticles = allArticles.concat(chunkArticles);
@@ -118,6 +129,7 @@ export async function searchDaangn(
   return {
     articles: sorted,
     regionCount: siblingRegions.length,
+    truncated,
   };
 }
 
@@ -126,10 +138,13 @@ export async function searchDaangnCity(
   search: string,
   onlyOnSale: boolean,
   sort: SortType
-): Promise<{ articles: Article[]; regionCount: number }> {
+): Promise<{ articles: Article[]; regionCount: number; truncated: boolean }> {
+  const startTime = Date.now();
+  let truncated = false;
+
   const districts = getDistrictsByCity(cityName);
   if (districts.length === 0) {
-    return { articles: [], regionCount: 0 };
+    return { articles: [], regionCount: 0, truncated: false };
   }
 
   // Step 1: Fetch all district representative dongs in parallel to collect siblingRegions
@@ -159,6 +174,17 @@ export async function searchDaangnCity(
     fetchedIds.add(fetchedId);
   }
 
+  // Early exit if already over budget after representative fetches
+  if (Date.now() - startTime > SEARCH_TIME_BUDGET || allArticles.length >= MAX_ARTICLES) {
+    const deduplicated = deduplicateArticles(allArticles);
+    const sorted = sortArticles(deduplicated, sort);
+    return {
+      articles: sorted,
+      regionCount: fetchedIds.size,
+      truncated: true,
+    };
+  }
+
   // Step 2: Determine remaining regions (siblings not yet fetched)
   const remainingRegions: SiblingRegion[] = [];
   const seenIds = new Set<number>(fetchedIds);
@@ -175,6 +201,11 @@ export async function searchDaangnCity(
 
   // Step 3: Fetch remaining sibling regions in chunks
   for (let i = 0; i < remainingRegions.length; i += CHUNK_SIZE) {
+    if (Date.now() - startTime > SEARCH_TIME_BUDGET || allArticles.length >= MAX_ARTICLES) {
+      truncated = true;
+      break;
+    }
+
     const chunk = remainingRegions.slice(i, i + CHUNK_SIZE);
     const chunkArticles = await fetchChunk(chunk, search, onlyOnSale);
     allArticles = allArticles.concat(chunkArticles);
@@ -190,5 +221,6 @@ export async function searchDaangnCity(
   return {
     articles: sorted,
     regionCount: seenIds.size,
+    truncated,
   };
 }

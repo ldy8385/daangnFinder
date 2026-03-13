@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Article } from "@/lib/types";
 
 interface ArticleCardProps {
@@ -41,11 +42,12 @@ export default function ArticleCard({ article }: ArticleCardProps) {
     >
       <div className={`relative aspect-square bg-warm-100 overflow-hidden ${isClosed ? "opacity-60" : ""}`}>
         {article.thumbnail ? (
-          <img
+          <Image
             src={article.thumbnail}
             alt={article.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            loading="lazy"
+            fill
+            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-warm-300">

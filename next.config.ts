@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "img.kr.gcp-karroter.net",
       },
+      {
+        protocol: "https",
+        hostname: "dnvefa72aowie.cloudfront.net",
+      },
     ],
   },
 };

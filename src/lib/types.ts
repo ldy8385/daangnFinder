@@ -27,6 +27,7 @@ export interface SearchResult {
   articles: Article[];
   resultCount: number;
   regionCount: number;
+  truncated: boolean;
 }
 
 export type SortType = "recent" | "price_asc" | "price_desc";
