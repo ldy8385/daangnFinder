@@ -10,7 +10,7 @@ export default function Home() {
   const [articles, setArticles] = useState<Article[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
-  const [onlyOnSale, setOnlyOnSale] = useState(true);
+  const [onlyOnSale, setOnlyOnSale] = useState(false);
   const [sort, setSort] = useState<SortType>("recent");
   const [resultCount, setResultCount] = useState(0);
   const [regionCount, setRegionCount] = useState(0);
